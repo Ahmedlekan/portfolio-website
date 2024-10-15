@@ -19,25 +19,15 @@ const About = () => {
             flex-col gap-4 max-w-containerxs"
             >
                 <p>
-                    I'am a very ambitious front-developer looking for a role
-                    in established company with the opportunity to work with 
-                    the latest technologies on challenging and diverse projects 
-                </p>
-                <p>
-                    I'm quitely confident, naturally curious, and perpetually 
-                    working on improving my chops and design problem at a time.
-                </p>
-                <p>
-                    I’ve always been a software developer with experience 
-                    developing websites and web applications, an independent 
-                    introvert, and a technophile obsessed with the latest devices.
-                </p>
-                <p>
-                    I’m familiar with a variety of programming languages, 
-                    including HTML, CSS, JavaScript, TypeScript, React, Next.js, 
-                    and React NATIVE, but I’m always adding new skills to my 
-                    repertoire. I’m also eager to meet other software engineers 
-                    in the area, so feel free to connect!
+                    Ahmed Lekan is a Web Developer with a specialization in front-end development. 
+                    Possesses extensive experience across all stages of the development cycle for 
+                    dynamic web and web development and user interface design. Technical proficiency 
+                    includes a wide range of programming languages and frameworks, such as HTML5, 
+                    CSS, Tailwind, JavaScript, TypeScript, Git, GitHub, React, and Next.js. He 
+                    has knowledge in Node.js, Express and MongoDb which facilitates seamless 
+                    collaboration with backend developers. Additionally, he holds a 
+                    strong background in project management and customer relations, 
+                    ensuring successful project outcomes and client satisfaction. 
                 </p>
             </div>
         

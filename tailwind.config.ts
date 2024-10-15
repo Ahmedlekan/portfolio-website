@@ -14,6 +14,7 @@ const config: Config = {
       containerxs: "670px",
       containersmx: "500px",
     },
+    
     extend: {
       zIndex: {
         '1': '1',
@@ -47,6 +48,17 @@ const config: Config = {
         navbarShadow: " 0 10px 30px -10px rgba(2,12,27,0.7)",
         cubeShadow: "0 0 20px 0px lightyellow"
       },
+      animation: {
+        "ping-large": "ping-large 1s ease-in-out infinite"
+      },
+      keyframes:{
+        "ping-large": {
+          "75%, 100%":{
+            transform: 'scale(3)',
+            opacity: '0'
+          }
+        }
+      }
     },
   },
   plugins: [

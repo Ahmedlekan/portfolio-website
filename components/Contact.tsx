@@ -11,11 +11,11 @@ const Contact = () => {
       .sendForm('service_same3fd', 'template_g9bg4iq', form.current!, 'B1B1OadTWJmi_FziM')
       .then(
         () => {
-          console.log('Message successfully sent!')
+          alert('Message successfully sent!')
           window.location.reload()
         },
         () => {
-          console.log('Failed to send the message, please try again')
+          alert('Failed to send the message, please try again')
         }
       )
   }

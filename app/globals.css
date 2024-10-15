@@ -3,6 +3,15 @@
 @tailwind utilities;
 
 
+@layer base {
+
+  .hero-ring {
+    @apply absolute inset-0 border-2 
+    top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full 
+    border-emerald-300/5 shadow-[0_0_80px_inset] shadow-emerald-300/5
+  }
+}
+
 @layer components {
   .contactInput {
     @apply w-full text-base text-white placeholder:text-textLight border 
@@ -15,7 +24,7 @@
     @apply relative w-[250px] h-[250px] bg-[#999] rounded-[50%]
     before:content-[""] before:absolute before:inset-[-10px_90px]
     before:bg-textGreen before:hover:inset-[-20px_0px] overflow-hidden
-    before:transition-all transition duration-[0.5s] before:animate-spin
+    before:transition-all transition duration-[0.5s] before:animate-spin before:[animation-duration:10s]
     after:content-[""] after:absolute after:inset-[6px] after:bg-[#162052]
     after:rounded-[50%] after:z-1
   }
