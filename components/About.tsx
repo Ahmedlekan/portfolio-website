@@ -1,4 +1,4 @@
-import about from "@/public/images/Ahmed.jpeg";
+import about from "@/public/images/Ahmed.png";
 import Image from "next/image";
 import SectionTitle from "./SectionTitle";
 
@@ -7,8 +7,8 @@ const About = () => {
   return (
     <section
       id="about"
-      className="max-w-contentContainer py-10 lgl:py-12 flex 
-      flex-col gap-8 mx-auto mdl:px-10 xl:px-7"
+      className=" max-w-containerSmall flex 
+      flex-col gap-8 mx-auto mt-20"
     >
       <SectionTitle title="About Me"/>
       
@@ -19,15 +19,16 @@ const About = () => {
             flex-col gap-4 max-w-containerxs"
             >
                 <p>
-                    Ahmed Lekan is a Web Developer with a specialization in front-end development. 
-                    Possesses extensive experience across all stages of the development cycle for 
-                    dynamic web and web development and user interface design. Technical proficiency 
-                    includes a wide range of programming languages and frameworks, such as HTML5, 
-                    CSS, Tailwind, JavaScript, TypeScript, Git, GitHub, React, and Next.js. He 
-                    has knowledge in Node.js, Express and MongoDb which facilitates seamless 
-                    collaboration with backend developers. Additionally, he holds a 
-                    strong background in project management and customer relations, 
-                    ensuring successful project outcomes and client satisfaction. 
+                  As an experienced Web Developer with a focus on front-end development, 
+                  I am passionate about crafting dynamic, user-centric web applications. 
+                  With over a 2+ years of experience in Web Developement. I excel in building 
+                  responsive, high-performance interfaces using cutting-edge technologies 
+                  like HTML5, CSS, Tailwind, JavaScript, TypeScript, Git, GitHub, 
+                  React, and Next.js. My knowledge extends to back-end development 
+                  with Node.js, Express, and MongoDB, allowing me to collaborate seamlessly 
+                  with cross-functional teams and deliver full-stack solutions. Additionally, 
+                  i holds a strong background in project management and customer relations, 
+                  ensuring successful project outcomes. 
                 </p>
             </div>
         

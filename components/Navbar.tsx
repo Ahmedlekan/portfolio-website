@@ -104,6 +104,21 @@ const Navbar = () => {
             <Link
               className="flex items-center gap-1 font-medium text-textDark 
                 hover:text-textGreen cursor-pointer duration-300 nav-link"
+              href="#skills"
+              onClick={handleScroll}
+            >
+              <motion.li
+                initial={{ y: -10, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.1, delay: 0.2 }}
+              >
+                Skills
+              </motion.li>
+            </Link>
+            
+            <Link
+              className="flex items-center gap-1 font-medium text-textDark 
+                hover:text-textGreen cursor-pointer duration-300 nav-link"
               href="#experience"
               onClick={handleScroll}
             >
@@ -222,6 +237,21 @@ const Navbar = () => {
                   <Link
                     className="flex items-center gap-1 font-medium text-textDark 
                     hover:text-textGreen cursor-pointer duration-300 nav-link"
+                    href="#skills"
+                    onClick={handleScroll}
+                  >
+                    <motion.li
+                      initial={{ x: 20, opacity: 0 }}
+                      animate={{ x: 0, opacity: 1 }}
+                      transition={{ duration: 0.2, delay: 0.3, ease: "easeIn" }}
+                    >
+                      Skills
+                    </motion.li>
+                  </Link>
+                  
+                  <Link
+                    className="flex items-center gap-1 font-medium text-textDark 
+                    hover:text-textGreen cursor-pointer duration-300 nav-link"
                     href="#experience"
                     onClick={handleScroll}
                   >
@@ -269,7 +299,7 @@ const Navbar = () => {
                     initial={{ y: 20, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ delay: 0.8, ease: "easeIn" }}
-                    href="https://github.com/Diplomaticfatman"
+                    href="https://github.com/Ahmedlekan"
                     target="_blank"
                   >
                     <span className="w-10 h-10 text-xl bg-bodyColor border-[1px] 
@@ -285,7 +315,7 @@ const Navbar = () => {
                     initial={{ y: 20, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ delay: 0.9, ease: "easeIn" }}
-                    href="https://www.linkedin.com/in/ahmed-lekan-8aa401214/"
+                    href="https://www.linkedin.com/in/lekan-ahmed-8aa401214"
                     target="_blank"
                   >
                     <span className="w-10 h-10 text-xl bg-bodyColor border-[1px] 

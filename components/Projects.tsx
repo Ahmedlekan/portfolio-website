@@ -1,7 +1,7 @@
-import amazonImg from "@/public/images/amazonImg.png"
+import booking from "@/public/images/booking.png"
+import ecommerce from "@/public/images/ecommerce.png"
 import Link from "next/link";
 import Image from "next/image";
-import { AiOutlineYoutube } from "react-icons/ai";
 import { TbBrandGithub } from "react-icons/tb";
 import SectionTitle from "./SectionTitle";
 import { RxOpenInNewWindow } from "react-icons/rx";
@@ -9,173 +9,159 @@ import { RxOpenInNewWindow } from "react-icons/rx";
 
 const Projects = () => {
   return (
-    <section id="project" className="max-w-contentContainer mx-auto mdl:px-10 
-    xl:px-7 py-10 md:py-24"
+    <section id="project" className=" max-w-containerSmall mx-auto mt-20 md:mt-40"
     >
         <SectionTitle title="Projects"/>
 
-        <div className="w-full flex flex-col items-center justify-center gap-28 
-        mt-10">
+        <div className="w-full flex flex-col items-center 
+            justify-center gap-14 mt-10"
+        >
         
-        {/* ============ project One Start here ================== */}
-            <div className="flex flex-col xl:flex-row gap-6">
-                <Link
-                    className="w-full xl:w-1/2 h-auto relative group"
-                    href="https://nextamazon.reactbd.com/"
-                    target="_blank"
-                >
-                    <div>
-                    <Image
-                        className="w-full h-full object-contain"
-                        src={amazonImg}
-                        alt="amazonImg"
-                    />
-                        <div className="absolute w-full h-full bg-textGreen/10 
-                        rounded-lg top-0 left-0 group-hover:bg-transparent 
-                        duration-300"
+            {/* ============ project One Start here ================== */}
+                <div className="flex flex-col xl:flex-row gap-6">
+                    <Link
+                        className="w-full xl:w-1/2 h-auto relative group"
+                        href="https://mern-ecommerce-2i1o.onrender.com/"
+                        target="_blank"
                         >
+                        <div className="relative w-full h-64 xl:h-auto">
+                            <Image
+                            className="w-full h-full object-cover rounded-lg"
+                            src={ecommerce}
+                            alt="ecommerceImg"
+                            />
+                            <div
+                            className="absolute inset-0 bg-textGreen/10 rounded-lg 
+                                top-0 left-0 group-hover:bg-transparent duration-300"
+                            ></div>
                         </div>
-                    </div>
-                </Link>
-            
-                <div className="w-full xl:w-1/2 flex flex-col gap-6 
-                lgl:justify-between items-end text-right xl:-ml-16 z-10"
-                >
-                    <div>
-                        <p className="font-titleFont text-textGreen text-sm 
-                        tracking-wide"
-                        >
-                            Featured Project
-                        </p>
-                        <h3 className="text-2xl font-bold">Amazon Clone 2.0</h3>
-                    </div>
-                    
-                    <p className="bg-[#112240] text-sm md:text-base p-2 
-                    md:p-6 rounded-md"
+                    </Link>
+                
+                    <div className="w-full xl:w-1/2 flex flex-col gap-6 
+                    lgl:justify-between items-end text-right xl:-ml-16 z-10"
                     >
-                        An Amazon clone website for visualizing personalized Amazon
-                        website. View your products, Add your account with{" "}
-                        <span className="text-textGreen">O-auth</span> and then 
-                        make the purchage using 
-                        <span className="text-textGreen">stripe</span>.
-                    </p>
-                    
-                    <ul className="text-xs md:text-sm font-titleFont 
-                    tracking-wide flex gap-2 md:gap-5 justify-between 
-                    text-textDark"
-                    >
-                        <li>Nextjs</li>
-                        <li>Typescript</li>
-                        <li>Prisma</li>
-                        <li>PlanetScale</li>
-                        <li>Vercel Deployment</li>
-                    </ul>
-
-                    <div className="text-2xl flex gap-4">
-                        <Link
-                            className="hover:text-textGreen duration-300"
-                            href="https://github.com/noorjsdivs"
-                            target="_blank"
-                        >
-                            <TbBrandGithub />
-                        </Link>
-                        <Link
-                            className="hover:text-textGreen duration-300"
-                            href="https://youtu.be/WzMtRfzkP-Q"
-                            target="_blank"
-                        >
-                            <AiOutlineYoutube />
-                        </Link>
-                        <Link
-                            className="hover:text-textGreen duration-300"
-                            href="https://nextamazon.reactbd.com/"
-                            target="_blank"
-                        >
-                            <RxOpenInNewWindow />
-                        </Link>
-                    </div>
-
-                </div>
-            </div>
-            {/* ============ project one end here ================== */}
-
-        {/* ============ project three start here ================== */}
-            <div className="flex flex-col xl:flex-row gap-6">
-                <Link
-                    className="w-full xl:w-1/2 h-auto relative group"
-                    href="https://nextamazon.reactbd.com/"
-                    target="_blank"
-                >
-                    <div>
-                        <Image
-                            className="w-full h-full object-contain"
-                            src={amazonImg}
-                            alt="amazonImg"
-                        />
-                        <div className="absolute w-full h-full bg-textGreen/10 
-                        rounded-lg top-0 left-0 group-hover:bg-transparent 
-                        duration-300">
+                        <div>
+                            <p className="font-titleFont text-textGreen text-sm 
+                            tracking-wide"
+                            >
+                                Featured Project
+                            </p>
+                            <h3 className="text-2xl font-bold">MERN ECOMMERCE</h3>
                         </div>
-                    </div>
-                </Link>
-            
-                <div className="w-full xl:w-1/2 flex flex-col gap-6 
-                lgl:justify-between items-end text-right xl:-ml-16 z-10"
-                >
-                    <div>
-                        <p className="font-titleFont text-textGreen text-sm 
-                        tracking-wide"
+                        
+                        <p className="bg-[#112240] text-sm md:text-base p-2 
+                            md:p-6 rounded-md text-justify"
                         >
-                            Featured Project
+                            The website allows users to browse products, add them to the cart, and complete the 
+                            checkout process. The platform also includes a dynamic admin dashboard, 
+                            where admin can manage products, view order history, 
+                            and handle user accounts.
                         </p>
                         
-                        <h3 className="text-2xl font-bold">Amazon Clone 2.0</h3>
-                    </div>
-                    <p className="bg-[#112240] text-sm md:text-base p-2 md:p-6 
-                        rounded-md">
-                        An Amazon clone website for visualizing personalized Amazon
-                        website. View your products, Add your account with{" "}
-                        <span className="text-textGreen">O-auth</span> and then 
-                        make the purchage using 
-                        <span className="text-textGreen">stripe</span>.
-                    </p>
-                    
-                    <ul className="text-xs md:text-sm font-titleFont tracking-wide 
-                    flex gap-2 md:gap-5 justify-between text-textDark"
-                    >
-                        <li>Nextjs</li>
-                        <li>Typescript</li>
-                        <li>Prisma</li>
-                        <li>PlanetScale</li>
-                        <li>Vercel Deployment</li>
-                    </ul>
-                    
-                    <div className="text-2xl flex gap-4">
-                        <Link
-                            className="hover:text-textGreen duration-300"
-                            href="https://github.com/noorjsdivs"
-                            target="_blank"
+                        <ul className="text-xs md:text-sm font-titleFont 
+                        tracking-wide flex gap-2 md:gap-5 justify-between 
+                        text-textDark"
                         >
-                            <TbBrandGithub />
-                        </Link>
-                        <Link
-                            className="hover:text-textGreen duration-300"
-                            href="https://youtu.be/WzMtRfzkP-Q"
-                            target="_blank"
-                        >
-                            <AiOutlineYoutube />
-                        </Link>
-                        <Link
-                            className="hover:text-textGreen duration-300"
-                            href="https://nextamazon.reactbd.com/"
-                            target="_blank"
-                        >
-                            <RxOpenInNewWindow />
-                        </Link>
-                    </div>
+                            <li>React</li>
+                            <li>Typescript</li>
+                            <li>Node</li>
+                            <li>Express</li>
+                            <li>MongoDb</li>
+                            <li>Stripe</li>
+                        </ul>
 
+                        <div className="text-2xl flex gap-4">
+                            <Link
+                                className="hover:text-textGreen duration-300"
+                                href="https://github.com/Ahmedlekan"
+                                target="_blank"
+                            >
+                                <TbBrandGithub />
+                            </Link>
+                            <Link
+                                className="hover:text-textGreen duration-300"
+                                href="https://mern-ecommerce-2i1o.onrender.com/"
+                                target="_blank"
+                            >
+                                <RxOpenInNewWindow />
+                            </Link>
+                        </div>
+
+                    </div>
                 </div>
-            </div>
+            {/* ============ project one end here ================== */}
+            
+            {/* ============ project two Start here ================== */}
+                <div className="flex flex-col xl:flex-row gap-6">
+                    <Link
+                        className="w-full xl:w-1/2 h-auto relative group"
+                        href="https://bookingwebapp-o1kc.onrender.com/"
+                        target="_blank"
+                        >
+                        <div className="relative w-full h-64 xl:h-auto">
+                            <Image
+                            className="w-full h-full object-cover rounded-lg"
+                            src={booking}
+                            alt="jotionImg"
+                            />
+                            <div
+                            className="absolute inset-0 bg-textGreen/10 rounded-lg top-0 left-0 group-hover:bg-transparent duration-300"
+                            ></div>
+                        </div>
+                    </Link>
+                
+                    <div className="w-full xl:w-1/2 flex flex-col gap-6 
+                    lgl:justify-between items-end text-right xl:-ml-16 z-10"
+                    >
+                        <div>
+                            <p className="font-titleFont text-textGreen text-sm 
+                            tracking-wide"
+                            >
+                                Featured Project
+                            </p>
+                            <h3 className="text-2xl font-bold">MERN BOOKING</h3>
+                        </div>
+                        
+                        <p className="bg-[#112240] text-sm md:text-base p-2 
+                        md:p-6 rounded-md text-justify"
+                        >
+                            The platform enables users to book services seamlessly, 
+                            while the users could add bookings too if they have any available. 
+                            Allows easy management of bookings, users, and other essential data.
+                        </p>
+                        
+                        <ul className="text-xs md:text-sm font-titleFont 
+                        tracking-wide flex gap-2 md:gap-5 justify-between 
+                        text-textDark"
+                        >
+                            <li>React</li>
+                            <li>Typescript</li>
+                            <li>Node</li>
+                            <li>Express</li>
+                            <li>MongoDb</li>
+                            <li>Stripe</li>
+                        </ul>
+
+                        <div className="text-2xl flex gap-4">
+                            <Link
+                                className="hover:text-textGreen duration-300"
+                                href="https://github.com/Ahmedlekan"
+                                target="_blank"
+                            >
+                                <TbBrandGithub />
+                            </Link>
+                            <Link
+                                className="hover:text-textGreen duration-300"
+                                href="https://bookingwebapp-o1kc.onrender.com/"
+                                target="_blank"
+                            >
+                                <RxOpenInNewWindow />
+                            </Link>
+                        </div>
+
+                    </div>
+                </div>
+            {/* ============ project two end here ================== */}
 
         </div>
         

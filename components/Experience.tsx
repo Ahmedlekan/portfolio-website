@@ -1,165 +1,65 @@
-"use client";
+import React from 'react'
+import { workExperience } from '@/app/constants'
+import { Button } from './MovingBoarders'
+import Image from 'next/image'
 
-import React from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import { SkillData } from "@/constants/constant";
-import Image from "next/image";
-import { Autoplay } from "swiper/modules";
-
-const Expereince = () => {
+const Experience = () => {
   return (
-    <div
-    id="experience"
-      className="max-w-contentContainer mx-auto lgl:px-2 py-10 md:py-24 flex 
-      justify-center items-center"
+    <div id="experience"
+        className=" max-w-containerSmall mx-auto mt-20 md:mt-40"
     >
-      <div className="flex flex-col gap-20 max-w-[80%] text-center items-center">
-        <div className="flex flex-col items-center gap-4">
-          <h1 className="font-semibold text-[30px] 
-          lgl:text-[40px] font-titleFont">
-            Skills{" "}
-            <span className="text-textGreen">
-              {" "}
-              &{" "}
-            </span>
-            Technologies
-          </h1>
+        
+        <div className='flex flex-col gap-10 text-center items-center'>
+            <h1 className="font-semibold text-[30px] 
+                lgl:text-[40px] font-titleFont"
+            >
+                Work Experience
+            </h1>
 
-          <p className="text-gray-400 text-[20px]">
-            Using the latest tech this world has to offer
-          </p>
-          <p className="text-gray-400 text-[15px] max-w-containersmx">
-            I'm not a designer but i have a good sense of aesthetics, and experience
-            in responsive mobile-first web design. I put special effort into 
-            optimizing my code and providing the best user experience 
-          </p>
+            <div className="w-full mt-12 grid lg:grid-cols-4 grid-cols-1 gap-10">
+                {workExperience.map((card) => (
+                <Button
+                    key={card.id}
+                    duration={Math.floor(Math.random() * 10000) + 10000}
+                    borderRadius="1.75rem"
+                    style={{
+                    background: "rgb(4,7,29)",
+                    backgroundColor:
+                        "linear-gradient(90deg, rgba(100, 255, 218, 1) 0%, rgba(32, 100, 85, 1) 100%)",
+                    borderRadius: `calc(1.75rem* 0.96)`,
+                    }}
+                    className="flex-1 text-black dark:text-white border-neutral-200 
+                        dark:border-slate-800"
+                >
+                    <div className="flex lg:flex-row flex-col 
+                        lg:items-center p-3 py-6 md:p-5 lg:p-10 gap-2"
+                    >
+                        <div className="relative lg:w-32 md:w-20 w-16">
+                            <Image
+                            src={card.thumbnail}
+                            alt={card.title}
+                            layout="intrinsic"
+                            width={128}
+                            height={128}
+                            className="object-cover rounded-lg"
+                            />
+                        </div>
+                        <div className="lg:ms-5">
+                            <h1 className="text-start text-textGreen text-xl md:text-2xl font-bold">
+                            {card.title}
+                            </h1>
+                            <p className="text-start text-white-100 mt-3 font-semibold text-white">
+                            {card.desc}
+                            </p>
+                        </div>
+                    </div>
+                </Button>
+            ))}
+            </div>
         </div>
-        
-        <Swiper
-          slidesPerView={5}
-          loop={true}
-          autoplay={{
-            delay: 0,
-            disableOnInteraction: false,
-          }}
-          speed={5000}
-          modules={[Autoplay]}
-          className="max-w-[80%]"
-        >
-          {SkillData.map((skill, index) => (
-            <SwiperSlide key={index}>
-              <Image
-                src={skill.Image}
-                alt={skill.name}
-                width={skill.width}
-                height={skill.height}
-              />
-            </SwiperSlide>
-          ))}
-        </Swiper>
-        <Swiper
-          slidesPerView={5}
-          loop={true}
-          autoplay={{
-            delay: 0,
-            disableOnInteraction: false,
-            reverseDirection: true
-          }}
-          speed={5000}
-          modules={[Autoplay]}
-          className="max-w-[80%]"
-        >
-          {SkillData.map((skill, index) => (
-            <SwiperSlide key={index}>
-              <Image
-                src={skill.Image}
-                alt={skill.name}
-                width={skill.width}
-                height={skill.height}
-              />
-            </SwiperSlide>
-          ))}
-        </Swiper>
-      </div>
+
     </div>
-  );
-};
+  )
+}
 
-export default Expereince;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// import React from 'react'
-// import SectionTitle from './SectionTitle'
-
-// const Experience = () => {
-//   return (
-//     <section
-//       id="experience"
-//       className="max-w-containerSmall mx-auto py-10 lgl:py-12 flex flex-col gap-8"
-//     >
-//       <SectionTitle title="Skills & Expereince" titleNo="02" />
-
-//         <div className="flex flex-col lgl:flex-row gap-16 relative">
-
-//             <div className=" basis-2/3 text-base text-textDark font-medium flex flex-col gap-4">
-//                 <p>
-//                     I have a good experience in front-end development including technologies
-//                     like <span className='text-textGreen'>
-//                         HTML5, CSS3, Tailwind, Sass javaScript, TypeScript, React, Nextjs, React Native,
-//                         Git
-//                     </span> etc.
-//                 </p>
-//                 <p>
-//                     I'm not a designer but i have a good sense pf aesthetics, and 
-//                     experience in responsive design, mobile-first web design. I put special
-//                     effort into optimizing my code and providing the best user experience.                    
-//                 </p>
-//             </div>
-
-
-//             <div className="basis-1/2 h-50 relative">        
-//                 <div className="pt-[10%] ml-[25%]">
-        
-//                 </div>
-//             </div>
-
-//         </div>
-//     </section>
-//   )
-// }
-
-// export default Experience
+export default Experience

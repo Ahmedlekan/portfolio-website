@@ -2,9 +2,10 @@
 
 import Banner from "@/components/Banner";
 import About from "@/components/About";
-import Experience from "@/components/Experience";
+import Skills from "@/components/Skills";
 import Projects from "@/components/Projects";
 import OtherProjects from "@/components/OtherProjects";
+import Experience from "@/components/Experience";
 import Contact from "@/components/Contact";
 import RightSide from "@/components/Right";
 import {motion} from "framer-motion"
@@ -28,6 +29,7 @@ export default function Home() {
       <div className="h-screen p-4 xl:ml-10">
           <Banner />
           <About />
+          <Skills />
           <Experience />
           <Projects />
           <OtherProjects />

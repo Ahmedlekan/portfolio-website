@@ -23,16 +23,16 @@ const Contact = () => {
   return (
     <section
       id="contact"
-      className="max-w-contentContainer mx-auto py-10 xl:py-22 flex 
-      flex-col gap-4 items-center justify-center"
+      className="max-w-contentContainer mx-auto flex 
+      flex-col gap-4 items-center justify-center mt-20 md:mt-40"
     >
-      <div className="flex flex-col justify-center items-center">
+      <div className="flex flex-col justify-center items-center gap-5">
         <p className="font-titleFont text-lg text-textGreen 
         font-semibold flex items-center tracking-wide">
           What’s Next?
         </p>
         <h2 className="font-titleFont text-5xl font-semibold">Get In Touch</h2>
-        <p className="max-w-[600px] text-center text-textDark">
+        <p className="max-w-[500px] text-center text-textDark">
             I'm interested in working as a full time, part time, 
             contract or freelance developer. However, if 
             you have other request or questions, don't hesitate to contact me.
@@ -43,7 +43,7 @@ const Contact = () => {
         <form action="" onSubmit={sendEmail} ref={form}>
           <ul className=" p-0 m-0">
             <li className=" p-0 m-0 lis-none mb-[10px] overflow-hidden block
-              relative clear-none w-[49%] ml-0 float-left ">
+              relative clear-none w-[49%] ml-0 float-left rounded-md ">
                 <input 
                 className=" w-full border-[0] bg-[#115173] h-[50px] text-base
                 text-white px-5 box-border"
@@ -54,7 +54,7 @@ const Contact = () => {
             </li>
 
             <li className=" p-0 m-0 lis-none mb-[10px] overflow-hidden block
-              relative clear-none w-[49%] ml-[2%] float-left ">
+              relative clear-none w-[49%] ml-[2%] float-left rounded-md">
               <input
                 className=" w-full border-[0] bg-[#115173] h-[50px] text-base
               text-white px-5 box-border"
@@ -66,7 +66,7 @@ const Contact = () => {
             </li>
 
             <li className=" p-0 m-0 lis-none mb-[10px] overflow-hidden block
-              relative clear-both">
+              relative clear-both rounded-md">
               <input
                 className=" w-full border-[0] bg-[#115173] h-[50px] text-base
                 text-white px-5 box-border"
@@ -78,7 +78,7 @@ const Contact = () => {
             </li>
 
             <li className=" p-0 m-0 lis-none mb-[10px] overflow-hidden block
-              relative clear-both">
+              relative clear-both rounded-md">
               <textarea
               className="w-full border-[0] bg-[#115173] h-[50px] min-h-[150px]
               text-base text-white px-5 box-border outline-none"
