@@ -16,16 +16,15 @@ const OtherProjects = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 mt-10">
         <OtherCard
-          title="Notion Clone"
-          des="An productivity tool modeled after Notion, allowing users to 
-          create and organize. Developed with Next.js for optimal performance, 
-          Tailwind CSS for a clean and responsive interface, 
-          and TypeScript for type safety and maintainability."
-          listItem={["Nextjs", "Tailwind CSS", "Typescript"]}
-          link="https://notion-clone-beige.vercel.app/"
+          title="Booking Website"
+          des="The platform enables users to book services seamlessly, 
+          while the users could add bookings too if they have any available. 
+          Allows easy management of bookings, users, and other essential data."
+          listItem={["React","Typescript","Node","Express"]}
+          link="https://bookingwebapp-o1kc.onrender.com"
         />
         <OtherCard
-          title="Miro Clone"
+          title="Sass Langing Page"
           des="A collaborative whiteboard tool inspired by Miro, designed for real-time 
           brainstorming and idea mapping. Built with Next.js for high-performance, 
           Tailwind CSS for responsive design, and TypeScript for enhanced code reliability."
@@ -33,7 +32,7 @@ const OtherProjects = () => {
           link="https://miro-clone-mocha.vercel.app/"
         />
         <OtherCard
-          title="Nextjs Ai Blog Website"
+          title="Ai Blog Website"
           des="An intelligent, AI-powered blog platform designed to deliver dynamic 
           and personalized content. Built with Next.js for optimized performance, 
           Tailwind CSS for a sleek, responsive design, and TypeScript for robust, 
