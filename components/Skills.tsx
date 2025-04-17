@@ -47,7 +47,7 @@ const Skills = () => {
         >
           {SkillData.map((skill, index) => (
             <SwiperSlide key={index}>
-              <Image
+              <img
                 src={skill.Image}
                 alt={skill.name}
                 width={skill.width}
@@ -70,7 +70,7 @@ const Skills = () => {
         >
           {SkillData.map((skill, index) => (
             <SwiperSlide key={index}>
-              <Image
+              <img
                 src={skill.Image}
                 alt={skill.name}
                 width={skill.width}

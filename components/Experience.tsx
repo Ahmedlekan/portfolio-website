@@ -1,64 +1,89 @@
 import React from 'react'
-import { workExperience } from '@/app/constants'
-import { Button } from './MovingBoarders'
-import Image from 'next/image'
+import { FaLaptopCode, FaReact, FaWordpress, FaFigma } from "react-icons/fa";
+import { motion } from "framer-motion";
+
+const experiences = [
+    {
+      role: "Freelance Web Developer",
+      company: "Contract Projects",
+      period: "July 2021 - February 2025",
+      remote: true,
+      icon: <FaLaptopCode className="text-textGreen" size={20} />,
+      highlights: [
+        "Collaborated with design teams to refine wireframes and prototypes, leading to interactive, user-friendly web applications that improved engagement by 40% and reduced load times by 30%.",
+        "Developed RESTful APIs to optimize client data retrieval speeds by 40%, ensuring seamless backend integration and reducing API errors by 25%",
+        "Delivered over 90% of projects ahead of schedule with high client satisfaction, managing end-to-end development lifecycles from concept to deployment",
+        "Engineered high-performance, responsive web applications using React and Next.js, achieving a 20% improvement in page load speed and boosting SEO rankings",
+        "Built robust server-side logic with Node.js and Express, improving data processing efficiency and reducing server response times by 30%",
+        "Implemented AWS-based CI/CD pipelines and Docker for deployment automation, ensuring seamless code integration and faster release cycles"
+      ]
+    },
+
+    {
+      role: "Frontend Developer",
+      company: "TradeDepot: Revolutionizing Supply Chain",
+      period: "Jan 2020 - July 2021",
+      Hybrid: true,
+      icon: <FaReact className="text-textGreen" size={20} />,
+      highlights: [
+        "Developed responsive websites using React/Next.js with 30% faster load times",
+        "Integrated REST APIs for dynamic content delivery",
+        "Implemented Tailwind CSS for consistent UI across 15+ client projects",
+        "Contributed to agile sprints with 100% on-time delivery"
+      ]
+    },
+  ];
 
 const Experience = () => {
+
   return (
-    <div id="experience"
-        className=" max-w-containerSmall mx-auto mt-20 md:mt-40"
-    >
-        
-        <div className='flex flex-col gap-10 text-center items-center'>
-            <h1 className="font-semibold text-[30px] 
-                lgl:text-[40px] font-titleFont"
-            >
-                Work Experience
-            </h1>
-
-            <div className="w-full mt-12 grid lg:grid-cols-4 grid-cols-1 gap-10">
-                {workExperience.map((card) => (
-                <Button
-                    key={card.id}
-                    duration={Math.floor(Math.random() * 10000) + 10000}
-                    borderRadius="1.75rem"
-                    style={{
-                    background: "rgb(4,7,29)",
-                    backgroundColor:
-                        "linear-gradient(90deg, rgba(100, 255, 218, 1) 0%, rgba(32, 100, 85, 1) 100%)",
-                    borderRadius: `calc(1.75rem* 0.96)`,
-                    }}
-                    className="flex-1 text-black dark:text-white border-neutral-200 
-                        dark:border-slate-800"
-                >
-                    <div className="flex lg:flex-row flex-col 
-                        lg:items-center p-3 py-6 md:p-5 lg:p-10 gap-2"
-                    >
-                        <div className="relative lg:w-32 md:w-20 w-16">
-                            <Image
-                            src={card.thumbnail}
-                            alt={card.title}
-                            layout="intrinsic"
-                            width={128}
-                            height={128}
-                            className="object-cover rounded-lg"
-                            />
-                        </div>
-                        <div className="lg:ms-5">
-                            <h1 className="text-start text-textGreen text-xl md:text-2xl font-bold">
-                            {card.title}
-                            </h1>
-                            <p className="text-start text-white-100 mt-3 font-semibold text-white">
-                            {card.desc}
-                            </p>
-                        </div>
-                    </div>
-                </Button>
-            ))}
+    <section id="experience" className="max-w-containerSmall mx-auto pt-20 px-4">
+      
+      <h2 className="text-3xl text-center font-bold text-white mb-12
+        text-[30px] lgl:text-[40px] font-titleFont">
+        Professional Journey
+      </h2>
+      
+      <div className="flex flex-col gap-8">
+        {experiences.map((exp, index) => (
+          <motion.div
+            key={index}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: index * 0.1 }}
+            viewport={{ once: true }}
+            className="bg-gray-900/50 border border-gray-800 rounded-xl p-6 
+            hover:border-textGreen/30 transition-colors"
+          >
+            <div className="flex flex-col md:flex-row gap-4 md:items-start">
+              <div className="p-3 bg-gray-800 rounded-lg border border-gray-700">
+                {exp.icon}
+              </div>
+              
+              <div className="flex-1">
+                <div className="flex flex-col sm:flex-row sm:items-center gap-2 mb-3">
+                  <h3 className="text-xl font-semibold text-white">
+                    {exp.role} · {exp.company}
+                  </h3>
+                  <span className="text-sm text-textGreen">
+                    {exp.period} {exp.remote && "· Remote"}
+                  </span>
+                </div>
+                
+                <ul className="space-y-2">
+                  {exp.highlights.map((item, i) => (
+                    <li key={i} className="flex gap-2 text-gray-400">
+                      <span className="text-textGreen mt-1.5">▹</span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
-        </div>
-
-    </div>
+          </motion.div>
+        ))}
+      </div>
+    </section>
   )
 }
 

@@ -1,5 +1,12 @@
 /** @type {import('next').NextConfig} */
+
 const nextConfig = {
+    output: "export",
+    trailingSlash: true,
+    images: {
+      unoptimized: true, // Required for static export
+    },
+    
     webpack(config) {
       // Grab the existing rule that handles SVG imports
       const fileLoaderRule = config.module.rules.find((rule) =>

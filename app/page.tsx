@@ -1,5 +1,4 @@
 "use client"
-
 import Banner from "@/components/Banner";
 import About from "@/components/About";
 import Skills from "@/components/Skills";
@@ -8,7 +7,9 @@ import OtherProjects from "@/components/OtherProjects";
 import Experience from "@/components/Experience";
 import Contact from "@/components/Contact";
 import RightSide from "@/components/Right";
+import Education from "@/components/Education";
 import {motion} from "framer-motion"
+
 
 export default function Home() {
 
@@ -29,9 +30,10 @@ export default function Home() {
       <div className="h-screen p-4 xl:ml-10">
           <Banner />
           <About />
+          <Education />
+          <Projects />
           <Skills />
           <Experience />
-          <Projects />
           <OtherProjects />
           <Contact />
       </div>

@@ -1,4 +1,4 @@
-import about from "@/public/images/Ahmed.png";
+import about from "@/public/images/ahmed.jpeg";
 import Image from "next/image";
 import SectionTitle from "./SectionTitle";
 
@@ -18,43 +18,52 @@ const About = () => {
             <div className="w-full text-base text-textDark font-medium flex 
             flex-col gap-4 max-w-containerxs"
             >
-                <p>
-                  Results-driven Full-stack Developer with 3+ years of experience
-                  building high-performance, responsive web applications. Proficient
-                  in modern front-end technologies, including HTML5, CSS, Tailwind,
-                  JavaScript, TypeScript, React, and Next.js, with solid expertise
-                  in backend development using Node.js, Express, and MongoDB.
-                  Adept at delivering optimized, scalable solutions with seamless
-                  front-end and back-end integration. Passionate about continuous
-                  learning, cloud technologies(aws), and workflow automation. 
-                  Strong problem-solving skills, collaborative mindset, and commitment
-                  to delivering client-centric digital experiences. 
+                <p className="mb-4">
+                  Full-stack developer specializing in performant web
+                  applications using modern JavaScript ecosystems. Combines 
+                  5+ years of hands-on experience with continuous learning
+                  to deliver scalable solutions that bridge technical
+                  excellence with user needs.
                 </p>
 
-                <p>
-                  Frontend Technologies: <br />
-                  HTML5, CSS, Tailwind CSS, JavaScript, TypeScript,
-                  React, Next.js, Responsive Design, Redux, Zustand, Axios
-                  React Query, Performance Optimization, Debugging
-                </p>
-                
-                <p>
-                  Backend & Database: <br />
-                  Node.js, Express, MongoDB, APIs & Integration
-                </p>
-                
-                <p>
-                  Other Skills: <br />
-                  Git, GitHub, AWS CI/CD, Docker, Terraform, AWS Cloud Architecture,Linux, Bash Scripting,
-                  Version Control, Cloud Deployment, Project Management, Client Relations, Workflow Automation
-                </p>
+                <div className="space-y-2">
+                  <div className="flex items-start gap-2">
+                    <span className="text-textGreen mt-1">▹</span>
+                    <span>
+                      <strong>Frontend:</strong> React/Next.js, TypeScript,
+                      Tailwind CSS, State Management (Redux/Zustand)
+                    </span>
+                  </div>
+                  
+                  <div className="flex items-start gap-2">
+                    <span className="text-textGreen mt-1">▹</span>
+                    <span>
+                      <strong>Backend:</strong> Node.js, Express, MongoDB, RESTful APIs
+                    </span>
+                  </div>
 
+                  <div className="flex items-start gap-2">
+                    <span className="text-textGreen mt-1">▹</span>
+                    <span>
+                      <strong>DevOps:</strong> AWS Solution Architect, Docker,
+                      CI/CD, Infrastructure as Code (Terraform)
+                    </span>
+                  </div>
+
+                  <div className="flex items-start gap-2">
+                    <span className="text-textGreen mt-1">▹</span>
+                    <span>
+                      <strong>Methodologies:</strong> Agile Development,
+                      Performance Optimization, Workflow Automation
+                    </span>
+                  </div>
+              </div>
             </div>
         
             <div className="circle">
                 <div className="content"
                 >
-                    <Image src={about} alt="about" className="contentImg"/>
+                    <img src="../images/ahmed.jpeg" alt="about" className="contentImg"/>
                 </div>
             </div>
 

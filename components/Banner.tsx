@@ -1,113 +1,135 @@
+import { FaArrowDown, FaFileDownload } from "react-icons/fa";
 import { motion } from "framer-motion";
-import Link from "next/link";
-import memoImage from "../public/images/memoji-computer.png"
-import { FaArrowDown } from "react-icons/fa";
-import grainImage from "../public/images/grain.jpg"
-import StarIcon from "../public/icons/star.svg"
-import SparkleIcon from "../public/icons/sparkle.svg"
-
-import Image from "next/image";
-import Orbit from "./Orbit";
+import { TypeAnimation } from 'react-type-animation';
 
 const Banner = () => {
   return (
-
-    <div className=" max-w-containerSmall mx-auto py-20 md:pt-28 
-      md:mb-60 relative z-0 overflow-x-clip"
+    <motion.div 
+      className="max-w-containerSmall mx-auto pb-16 pt-3 relative z-0"
+      id="home"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.8 }}
     >
-
-      <div className=" absolute inset-0 
-        [mask-image:linear-gradient(to_bottom,transparent,black_10%,black_70%,transparent)]"
-      >
-
-        <div className=" absolute inset-0 -z-30 opacity-5"
-          style={{ backgroundImage: `url(${grainImage.src})`}}
-        ></div>
-        <div className=" size-[620px] hero-ring"></div>
-        <div className=" size-[820px] hero-ring"></div>
-        <div className=" size-[1020px] hero-ring"></div>
-        <div className=" size-[1220px] hero-ring"></div>
-        <Orbit size={800} rotation={-72} shouldOrbit orbitDuration="48s" shouldSpin spinDuration="6s">
-          <StarIcon className=" size-28 text-emerald-300" />
-        </Orbit>
-        <Orbit size={550} rotation={20} shouldOrbit orbitDuration="38s" shouldSpin spinDuration="6s">
-          <StarIcon className=" size-12 text-emerald-300" />
-        </Orbit>
-        <Orbit size={590} rotation={98} shouldOrbit orbitDuration="40s" shouldSpin spinDuration="6s">
-          <StarIcon className=" size-8 text-emerald-300" />
-        </Orbit>
-        <Orbit size={430} rotation={-14} shouldOrbit orbitDuration="30s" shouldSpin spinDuration="3s">
-          <SparkleIcon className=" size-8 text-emerald-300/20" />
-        </Orbit>
-        <Orbit size={440} rotation={79} shouldOrbit orbitDuration="32s" shouldSpin spinDuration="3s">
-          <SparkleIcon className=" size-5 text-emerald-300/20" />
-        </Orbit>
-        <Orbit size={530} rotation={178} shouldOrbit orbitDuration="36s" shouldSpin spinDuration="3s">
-          <SparkleIcon className=" size-10 text-emerald-300/20" />
-        </Orbit>
-        <Orbit size={710} rotation={144} shouldOrbit orbitDuration="44s" shouldSpin spinDuration="3s">
-          <SparkleIcon className=" size-14 text-emerald-300/20" />
-        </Orbit>
-        <Orbit size={720} rotation={85} shouldOrbit orbitDuration="46s" shouldSpin spinDuration="3s"> 
-          <SparkleIcon className=" size-3 text-emerald-300/20" />
-        </Orbit>
-        <Orbit size={520} rotation={-41} shouldOrbit orbitDuration="34s" shouldSpin spinDuration="3s">
-          <StarIcon className=" size-5 rounded-full text-emerald-300" shouldSpin spinDuration="6s"/>
-        </Orbit>
-        <Orbit size={650} rotation={-5} shouldOrbit orbitDuration="42s">
-          <SparkleIcon className=" size-5 rounded-full text-emerald-300" shouldSpin spinDuration="6s"/>
-        </Orbit>
-
-      </div>
-
-      <div className="">
-
-        <div className="flex flex-col items-center">
-          <Image src={memoImage} alt="memo Image" className=" size-[100px]" />
-
-          <div className=" bg-gray-950 border border-gray-800 
-            px-4 py-1.5 inline-flex items-center gap-4 rounded-lg">
-            
-            <div className=" bg-green-500 h-2 w-2 rounded-full relative">
-              <div className=" bg-green-500 absolute h-2 w-2 rounded-full animate-ping-large"></div>
-            </div>
-            
-            <div>Available for projects</div>
-          </div>
-        </div>
-
-        <div className=" max-w-containersmx mx-auto">
-          <h1 className=" mt-8 text-2xl md:text-3xl lg:5xl text-center font-serif tracking-wide">
-            Transforming Concepts into Seamless User Experiences
-          </h1>
-
-          <p className=" mt-4 text-center text-white/60">
-            Hi! I&apos;m Ahmed, a Software Developer based in Canada. 
-          </p>
-        </div>
-
-        <div className=" flex flex-col items-center justify-center 
-          gap-4 md:flex-row mt-4"
+      <div className="flex flex-col items-center px-4 gap-4 ">
+        {/* Avatar with animation */}
+        <motion.div 
+          className="size-28 md:size-36 mb-2"
+          initial={{ y: -20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ delay: 0.2, duration: 0.8 }}
         >
-          <button className=" inline-flex items-center gap-2 border 
-            border-white/20 px-6 h-12 rounded-xl hover:text-textGreen 
-              cursor-pointer hover:-translate-y-2 transition-all duration-300">
-            <span className=" font-semibold">Explore my world</span>
-            <FaArrowDown  size={25} />
-          </button>
+          <img
+            src="../images/memoji-computer.png"
+            alt="Ahmed's Memoji"
+            className="size-full object-contain hover:scale-105 transition-transform duration-300"
+          />
+        </motion.div>
 
-          <button className=" inline-flex items-center gap-2 border cursor-pointer 
-          border-white bg-white text-gray-900 px-6 h-12 rounded-xl"
-            id="contact"
+        {/* Availability badge */}
+        <motion.div 
+          className="bg-gray-950 border border-gray-800 
+            px-4 py-1.5 inline-flex items-center gap-4 rounded-lg"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.4, duration: 0.8 }}
+        >
+          <div className=" bg-green-500 h-2 w-2 rounded-full relative">
+              <div className=" bg-green-500 absolute h-2 w-2
+              rounded-full animate-ping-large"></div>
+            </div>
+          <span>
+            Available for projects
+          </span>
+        </motion.div>
+
+        {/* Headline */}
+        <div className="max-w-3xl mx-auto text-center">
+          <motion.h1
+            className="text-2xl md:text-4xl font-bold
+              mb-6 leading-tight"
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.6, duration: 0.8 }}
           >
-            <span>👋</span>
-            <span className=" font-semibold">Lets connect</span>
-          </button>
+            <TypeAnimation
+              sequence={[
+                'Transforming Concepts',
+                1000,
+                'Transforming Ideas',
+                1000,
+                'Transforming Visions',
+                1000
+              ]}
+              wrapper="span"
+              speed={50}
+              repeat={Infinity}
+              className="text-textGreen"
+            /> 
+            <br />
+            into Seamless Digital Experiences
+          </motion.h1>
+
+          <motion.p
+            className="text-lg text-gray-400
+            mx-auto leading-relaxed max-w-containerxs"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.8, duration: 0.8 }}
+          >
+            Hi! I'm <span className="text-textGreen font-medium">
+              Ahmed</span>, a Web Developer & Cloud Enthusiast
+              crafting performant web solutions based in 
+              <span className="text-textGreen font-medium">
+                Canada
+              </span>.
+          </motion.p>
+          
         </div>
 
+        {/* CTA Buttons */}
+        <motion.div 
+          className="flex flex-col items-center justify-center
+          gap-4 md:flex-row"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1, duration: 0.8 }}
+        >
+          <motion.button 
+            whileHover={{ y: -5 }}
+            whileTap={{ scale: 0.95 }}
+            className="flex items-center gap-3 border border-textGreen/30 
+              bg-gray-900/50 px-8 py-4 rounded-lg text-textGreen 
+              hover:bg-textGreen/10 hover:shadow-lg hover:shadow-textGreen/10 
+              transition-all duration-300"
+          >
+            <span className="font-medium">Explore my work</span>
+            <FaArrowDown className="animate-bounce" />
+          </motion.button>
+
+          <motion.a
+            href="/images/resume.pdf"
+            download
+            whileHover={{ y: -5 }}
+            whileTap={{ scale: 0.95 }} 
+            className="flex items-center gap-3 bg-textGreen 
+            text-gray-900 px-8 py-4 rounded-lg font-medium hover:bg-textGreen/90
+            hover:shadow-lg hover:shadow-textGreen/20 transition-all duration-300"
+          >
+            <FaFileDownload className="mr-2" />
+            <span>Download CV</span>
+          </motion.a>
+
+        </motion.div>
       </div>
-      
-    </div>
+
+      {/* Decorative elements */}
+      <div className="absolute -top-20 -left-20 w-72 h-72 bg-textGreen/10
+      rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob"></div>
+      <div className="absolute -bottom-20 -right-20 w-72 h-72 bg-purple-500/10
+      rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob
+      animation-delay-2000"></div>
+    </motion.div>
   );
 };
 

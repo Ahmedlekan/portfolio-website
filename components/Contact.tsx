@@ -1,106 +1,182 @@
-import { useRef } from 'react'
-import emailjs from '@emailjs/browser'
+import { useState, useRef } from 'react';
+import { FiSend, FiCheck, FiAlertCircle } from 'react-icons/fi';
+import { motion } from 'framer-motion';
 
 const Contact = () => {
-  const form = useRef(null) 
+  const formRef = useRef<HTMLFormElement>(null);
+  const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
+  const [errorMessage, setErrorMessage] = useState('');
 
-  const sendEmail = (e:any) => {
-    e.preventDefault()
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setStatus('sending');
+    setErrorMessage('');
 
-    emailjs
-      .sendForm('service_same3fd', 'template_g9bg4iq', form.current!, 'B1B1OadTWJmi_FziM')
-      .then(
-        () => {
-          alert('Message successfully sent!')
-          window.location.reload()
-        },
-        () => {
-          alert('Failed to send the message, please try again')
-        }
-      )
-  }
+    const formData = new FormData(e.currentTarget);
+    const data = {
+      name: formData.get('user_name') as string,
+      email: formData.get('user_email') as string,
+      subject: formData.get('subject') as string,
+      message: formData.get('message') as string
+    };
+
+    try {
+      const response = await fetch('/api/sendmail', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.error || 'Failed to send message');
+      }
+
+      setStatus('success');
+      if (formRef.current) formRef.current.reset()
+    } catch (error) {
+      setStatus('error');
+      setErrorMessage(error instanceof Error ? error.message : 'An unexpected error occurred');
+    } finally {
+      setTimeout(() => {
+        setStatus('idle');
+        setErrorMessage('');
+      }, 5000);
+    }
+  };
 
   return (
-    <section
-      id="contact"
-      className="max-w-contentContainer mx-auto flex 
-      flex-col gap-4 items-center justify-center mt-20 md:mt-40"
+    <section id="contact"
+      className="max-w-contentContainer mx-auto py-20 px-4"
     >
-      <div className="flex flex-col justify-center items-center gap-5">
+      <motion.div
+       initial={{ opacity: 0, y: 20 }}
+       whileInView={{ opacity: 1, y: 0 }}
+       transition={{ duration: 0.5 }}
+       viewport={{ once: true }}
+       className="flex flex-col items-center gap-4"
+      >
         <p className="font-titleFont text-lg text-textGreen 
         font-semibold flex items-center tracking-wide">
           What’s Next?
         </p>
         <h2 className="font-titleFont text-5xl font-semibold">Get In Touch</h2>
-        <p className="max-w-[500px] text-center text-textDark">
-            I'm interested in working as a full time, part time, 
-            contract or freelance developer. However, if 
-            you have other request or questions, don't hesitate to contact me.
+        <p className=" max-w-containerxs text-center text-gray-400 mb-12">
+          I'm currently open to full-time, part-time, contract, or freelance
+          opportunities. Whether you have a project in mind or just
+          want to say hello, I'll do my best to respond promptly!
         </p>
-      </div>
-          
-      <div className=" max-w-containerSmall mt-10">  
-        <form action="" onSubmit={sendEmail} ref={form}>
+
+        <div className=" max-w-containerSmall mt-10">  
+        <form action="" onSubmit={handleSubmit} ref={formRef}>
           <ul className=" p-0 m-0">
+
             <li className=" p-0 m-0 lis-none mb-[10px] overflow-hidden block
               relative clear-none w-[49%] ml-0 float-left rounded-md ">
                 <input 
-                className=" w-full border-[0] bg-[#115173] h-[50px] text-base
-                text-white px-5 box-border"
-                placeholder="Name" 
-                type="text" 
-                name="user_name" 
-                required />
+                  id="name"
+                  name="user_name"
+                  type="text"
+                  placeholder="Your Name"
+                  required 
+                  className="w-full bg-gray-800 border border-gray-700
+                    rounded-lg px-5 py-3 text-white placeholder-gray-500 
+                    focus:border-textGreen focus:ring-2 focus:ring-textGreen/50
+                    outline-none transition"
+                />
             </li>
 
             <li className=" p-0 m-0 lis-none mb-[10px] overflow-hidden block
               relative clear-none w-[49%] ml-[2%] float-left rounded-md">
               <input
-                className=" w-full border-[0] bg-[#115173] h-[50px] text-base
-              text-white px-5 box-border"
-                placeholder="Email"
+                id="email"
+                name="user_email"
                 type="email"
-                name="email_id"
+                placeholder="Your Email"
                 required
+                className="w-full bg-gray-800 border border-gray-700
+                rounded-lg px-5 py-3 text-white placeholder-gray-500 
+                focus:border-textGreen focus:ring-2 focus:ring-textGreen/50 
+                outline-none transition"
               />
             </li>
 
             <li className=" p-0 m-0 lis-none mb-[10px] overflow-hidden block
               relative clear-both rounded-md">
               <input
-                className=" w-full border-[0] bg-[#115173] h-[50px] text-base
-                text-white px-5 box-border"
-                placeholder="Subject"
-                type="text"
+                id="subject"
                 name="subject"
+                type="text"
+                placeholder="Subject"
                 required
+                className="w-full bg-gray-800 border border-gray-700 rounded-lg
+                px-5 py-3 text-white placeholder-gray-500 focus:border-textGreen
+                focus:ring-2 focus:ring-textGreen/50 outline-none transition"
               />
             </li>
 
             <li className=" p-0 m-0 lis-none mb-[10px] overflow-hidden block
               relative clear-both rounded-md">
               <textarea
-              className="w-full border-[0] bg-[#115173] h-[50px] min-h-[150px]
-              text-base text-white px-5 box-border outline-none"
-                placeholder="Message"
-                name="message"
-                required
+              id="message"
+              name="message"
+              rows={5}
+              placeholder="Your Message"
+              required
+              className="w-full bg-gray-800 border border-gray-700 rounded-lg
+              px-5 py-3 text-white placeholder-gray-500 focus:border-textGreen
+              focus:ring-2 focus:ring-textGreen/50 outline-none transition
+              min-h-[150px]"
               ></textarea>
             </li>
 
-            <li className="p-0 m-0 lis-none mb-[10px] overflow-hidden block
-              relative clear-both">
-              <input 
-                type="submit" 
-                className="text-textGreen text-xs no-underline py-[8px] 
-                px-[10px] border border-[1px_solid_#ffd700] rounded
-                uppercase text-center mr-2 cursor-pointer" 
-                value="SEND" 
-              />
-            </li>
+            <div className="flex items-center justify-between">
+              <div className="flex items-center">
+                  {status === 'success' && (
+                    <div className="flex items-center text-green-500">
+                      <FiCheck className="mr-2" />
+                      <span>Message sent successfully!</span>
+                    </div>
+                  )}
+                  {status === 'error' && (
+                    <div className="flex items-center text-red-500">
+                      <FiAlertCircle className="mr-2" />
+                      <span>{errorMessage}</span>
+                    </div>
+                  )}
+              </div>
+
+              <button
+                type="submit"
+                disabled={status === 'sending'}
+                className={`flex items-center gap-2 px-6 py-3 rounded-lg
+                  font-medium transition ${
+                  status === 'sending'
+                    ? 'bg-gray-600 cursor-not-allowed'
+                    : 'bg-textGreen text-gray-900 hover:bg-textGreen/90'
+                }`}
+              >
+                {status === 'sending' ? (
+                  'Sending...'
+                ) : (
+                  <>
+                    <FiSend />
+                    Send Message
+                  </>
+                )}
+              </button>
+
+            </div>
+
           </ul>
         </form>
       </div>
+
+
+      </motion.div>
+          
+      
 
     </section>
   );
