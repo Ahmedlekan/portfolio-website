@@ -4,32 +4,32 @@ import { motion } from "framer-motion";
 
 const experiences = [
     {
-      role: "Freelance Web Developer",
-      company: "Contract Projects",
-      period: "July 2021 - February 2025",
+      role: "Freelance DevOps & Cloud Engineer",
+      company: "Contract (Remote)",
+      period: "July 2022 - Present",
       remote: true,
       icon: <FaLaptopCode className="text-textGreen" size={20} />,
       highlights: [
-        "Collaborated with design teams to refine wireframes and prototypes, leading to interactive, user-friendly web applications that improved engagement by 40% and reduced load times by 30%.",
-        "Developed RESTful APIs to optimize client data retrieval speeds by 40%, ensuring seamless backend integration and reducing API errors by 25%",
-        "Delivered over 90% of projects ahead of schedule with high client satisfaction, managing end-to-end development lifecycles from concept to deployment",
-        "Engineered high-performance, responsive web applications using React and Next.js, achieving a 20% improvement in page load speed and boosting SEO rankings",
-        "Built robust server-side logic with Node.js and Express, improving data processing efficiency and reducing server response times by 30%",
-        "Implemented AWS-based CI/CD pipelines and Docker for deployment automation, ensuring seamless code integration and faster release cycles"
+        "Architected end-to-end CI/CD pipelines using Jenkins, GitHub Actions, and AWS CodePipeline to automate builds, tests, and zero-downtime deployments, cutting manual deployment effort by 90%",
+        "Containerized multi-service applications using Docker and orchestrated them on Kubernetes clusters, implementing Helm charts and Kubernetes Jobs for batch processing",
+        "Configured observability stack with AWS X-Ray, CloudWatch, Prometheus, and Grafana for metrics, logging, and alerting, decreasing incident response time by 60%",
+        "Automated deployment of a static website on AWS S3 using Terraform, integrated with CloudFront, Route53, WAF, and ACM, reducing global latency by 40% and ensuring secure, consistent infrastructure",
+        "Designed and implemented a GitOps-based CI/CD pipeline with ArgoCD, integrating Blue-Green and Canary deployments via Argo Rollouts and Flagger for automated, zero-downtime Kubernetes updates",
+        "Designed and deployed a multi-tier architecture with a public ALB routing traffic to Nginx-based EC2 web tier (React.js), which proxies API requests to an internal ALB and Node.js app tier connected to an Aurora MySQL (Multi-AZ) backend. Implemented load balancing, health checks, and autoscaling at each layer for high availability"
       ]
     },
 
     {
-      role: "Frontend Developer",
+      role: "Full - Stack Developer",
       company: "TradeDepot: Revolutionizing Supply Chain",
-      period: "Jan 2020 - July 2021",
+      period: "Jan 2020 - July 2022",
       Hybrid: true,
       icon: <FaReact className="text-textGreen" size={20} />,
       highlights: [
-        "Developed responsive websites using React/Next.js with 30% faster load times",
-        "Integrated REST APIs for dynamic content delivery",
-        "Implemented Tailwind CSS for consistent UI across 15+ client projects",
-        "Contributed to agile sprints with 100% on-time delivery"
+        "Developed responsive, high-performance web interfaces using React, JavaScript, and modern CSS frameworks (Bootstrap, Tailwind), improving mobile usability by 25%",
+        "Engineered seamless API integrations (REST) to fetch and display dynamic data, reducing load times by 30% through optimized requests",
+        "Collaborated cross-functionally with UX designers and backend engineers to refine user flows, boosting conversion rates by 15%",
+        "Redesigned legacy UIs based on user analytics and A/B testing, increasing engagement metrics (session duration, clicks) by 40%"
       ]
     },
   ];

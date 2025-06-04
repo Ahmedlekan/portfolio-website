@@ -102,15 +102,17 @@ export const projects = [
         },
     },
     {
-        title: 'Job Hunt',
-        description: 'Cloud-based SaaS for municipal services with NReact frontend, featuring serverless components and Terraform infrastructure.',
-        techStack: ['React', 'AWS', "Typescript", "Docker",],
-        links: {
+      title: 'Job Hunt',
+      description: "Production-ready, serverless SaaS platform for municipal services, built with React and TypeScript, and deployed using a secure, scalable AWS architecture fully managed via Terraform. The infrastructure leverages S3 for storage, CloudFront for global delivery, ACM for HTTPS, WAF for security, and CodePipeline/CodeBuild for CI/CD automation.",
+      techStack: [
+        'React', 'TypeScript', 'Terraform', 'AWS S3', 'AWS CloudFront', 'AWS Route 53', 'AWS ACM', 
+        'AWS CodePipeline', 'AWS CodeBuild', 'AWS WAF', 'AWS CloudWatch'
+      ],
+      links: {
         github: 'https://github.com/Ahmedlekan/Job-hunt',
         live: 'https://d20hr592h4gx9a.cloudfront.net/'
-        },
+      }
     },
-
     {
         title: 'My Portfolio',
         description: 'This very website, which is meant to showcase my experience and projects. This project is built using Nextjs.',

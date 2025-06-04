@@ -75,15 +75,30 @@ const Education = () => {
               <div className="flex items-start gap-3">
                 <div className="p-2 bg-gray-800 rounded-lg border border-gray-700 
                     group-hover:border-textGreen/50">
-                  <FaAws className="text-orange-400" size={20} />
+                  <FaAws className="text-orange-400" size={25} />
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold text-white">AWS Solutions Architect Associate</h3>
-                  <p className="text-sm text-textGreen mb-2">In Progress (Expected 2025)</p>
-                  <p className="text-gray-400 text-sm">
-                    Currently mastering cloud architecture, AWS services, and best
-                    practices for building secure, reliable applications on AWS.
-                  </p>
+                  <h3 className="text-lg font-semibold text-white">AWS Solutions Architect - Associate</h3>
+                </div>
+              </div>
+            </div>
+            
+            <div className="bg-gray-900/50 border border-gray-800 rounded-xl p-6 
+                hover:border-textGreen/30 transition-colors group">
+              <div className="flex items-start gap-3">
+                <div className="p-2 bg-gray-800 rounded-lg border border-gray-700 
+                  group-hover:border-textGreen/50">
+                  <img
+                    src="https://cdn.worldvectorlogo.com/logos/udemy-2.svg"
+                    alt="Udemy"
+                    className="w-7 h-7 object-contain"
+                  />
+                </div>
+                <div>
+                  <h3 className="text-lg font-semibold text-white">
+                    DevOps Engineering: - Advanced
+                  </h3>
+                  <p className="text-sm text-textGreen">Udemy</p>
                 </div>
               </div>
             </div>

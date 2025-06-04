@@ -18,22 +18,24 @@ const About = () => {
             <div className="w-full text-base text-textDark font-medium flex 
             flex-col gap-4 max-w-containerxs"
             >
-                <p className="mb-4">
-                  Full-stack developer specializing in performant web
-                  applications using modern JavaScript ecosystems. Combines 
-                  5+ years of hands-on experience with continuous learning
-                  to deliver scalable solutions that bridge technical
-                  excellence with user needs.
-                </p>
+              <p className="mb-4">
+                DevOps & Cloud Engineer with 3+ years of hands-on experience in cloud-native
+                infrastructure, automation, and CI/CD pipelines using AWS, Terraform, Docker,
+                and Kubernetes. Over 5 years of combined experience in full-stack development
+                and cloud deployment of scalable applications. Proficient in Infrastructure as
+                Code (IaC), container orchestration, GitOps workflows, and site reliability practices.
+                Adept at building fault-tolerant, cost-effective solutions using modern DevOps toolchains.
+                Passionate about automation, system optimization, and cloud architecture best practices.
+              </p>
 
-                <div className="space-y-2">
-                  <div className="flex items-start gap-2">
-                    <span className="text-textGreen mt-1">▹</span>
-                    <span>
-                      <strong>Frontend:</strong> React/Next.js, TypeScript,
-                      Tailwind CSS, State Management (Redux/Zustand)
-                    </span>
-                  </div>
+              {/* <div className="space-y-2">
+                <div className="flex items-start gap-2">
+                  <span className="text-textGreen mt-1">▹</span>
+                  <span>
+                    <strong>Frontend:</strong> React/Next.js, TypeScript,
+                    Tailwind CSS, State Management (Redux/Zustand)
+                  </span>
+                </div>
                   
                   <div className="flex items-start gap-2">
                     <span className="text-textGreen mt-1">▹</span>
@@ -57,7 +59,7 @@ const About = () => {
                       Performance Optimization, Workflow Automation
                     </span>
                   </div>
-              </div>
+              </div> */}
             </div>
         
             <div className="circle">
