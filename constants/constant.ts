@@ -103,7 +103,7 @@ export const projects = [
     },
     {
       title: 'Job Hunt',
-      description: "Production-ready, serverless SaaS platform for municipal services, built with React and TypeScript, and deployed using a secure, scalable AWS architecture fully managed via Terraform. The infrastructure leverages S3 for storage, CloudFront for global delivery, ACM for HTTPS, WAF for security, and CodePipeline/CodeBuild for CI/CD automation.",
+      description: "Production-ready, services, built with React and TypeScript, and deployed using a secure, scalable AWS architecture fully managed via Terraform.",
       techStack: [
         'React', 'TypeScript', 'Terraform', 'AWS S3', 'AWS CloudFront', 'AWS Route 53', 'AWS ACM', 
         'AWS CodePipeline', 'AWS CodeBuild', 'AWS WAF', 'AWS CloudWatch'
