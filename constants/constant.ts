@@ -110,7 +110,7 @@ export const projects = [
       ],
       links: {
         github: 'https://github.com/Ahmedlekan/Job-hunt',
-        live: 'https://d20hr592h4gx9a.cloudfront.net/'
+        live: 'https://lekanmi.xyz/'
       }
     },
     {
