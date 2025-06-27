@@ -34,7 +34,7 @@ import {SiHtml5,SiCss3,SiJavascript,SiTailwindcss,SiReact,SiRedux,SiTypescript,
       icon: SiTypescript,
     },
     {
-      name: "Next.js 13",
+      name: "Next.js",
       icon: SiNextdotjs,
     },
     {

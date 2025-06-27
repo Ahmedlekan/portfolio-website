@@ -43,8 +43,10 @@ const Skills = () => {
         >
           {SkillData.map((skill, index) => (
             <SwiperSlide key={index}>
-              <skill.icon className="text-5xl text-textGreen" />
-              <p className="text-sm text-white">{skill.name}</p>
+              <div className="flex flex-col items-center justify-center space-y-2 text-center px-2">
+                <skill.icon className="text-5xl text-textGreen" />
+                <p className="text-xs sm:text-sm text-white break-words">{skill.name}</p>
+              </div>
             </SwiperSlide>
           ))}
         </Swiper>
@@ -62,8 +64,10 @@ const Skills = () => {
         >
           {SkillData.map((skill, index) => (
             <SwiperSlide key={index}>
-              <skill.icon className="text-5xl text-textGreen" />
-              <p className="text-sm text-white">{skill.name}</p>
+              <div className="flex flex-col items-center justify-center space-y-2 text-center px-2">
+                <skill.icon className="text-5xl text-textGreen" />
+                <p className="text-xs sm:text-sm text-white break-words">{skill.name}</p>
+              </div>
             </SwiperSlide>
           ))}
         </Swiper>

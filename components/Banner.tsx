@@ -39,7 +39,7 @@ const Banner = () => {
               rounded-full animate-ping-large"></div>
             </div>
           <span>
-          Available for Cloud & DevOps roles
+          Available for Full-Stack & DevOps roles
           </span>
         </motion.div>
 
