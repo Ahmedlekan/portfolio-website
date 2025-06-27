@@ -54,11 +54,11 @@ const Banner = () => {
           >
             <TypeAnimation
               sequence={[
-                'Building Resilient Cloud Infrastructure',
+                'Building Scalable Web Applications',
                 1000,
-                'Automating DevOps Pipelines',
+                'Automating Cloud Infrastructure',
                 1000,
-                'Scaling Systems with Kubernetes',
+                'Delivering End-to-End DevOps Solutions',
                 1000
               ]}
               wrapper="span"
@@ -67,7 +67,7 @@ const Banner = () => {
               className="text-textGreen"
             /> 
             <br />
-            for Scalable, Secure Engineering Teams
+            with Full Stack & DevOps Excellence
           </motion.h1>
 
           <motion.p
@@ -78,14 +78,16 @@ const Banner = () => {
             transition={{ delay: 0.8, duration: 0.8 }}
           >
             Hi! I'm <span className="text-textGreen font-medium">
-              Ahmed</span>, a Cloud & DevOps Engineer passionate about 
-              building automated, scalable infrastructure on&nbsp;
+              Ahmed</span>, a Full-Stack & DevOps Engineer passionate about 
+              building scalable apps, and cloud infrastructure. I specialize in technologies like&nbsp;
+              <span className="text-textGreen font-medium">React, Nextjs</span>,&nbsp;
+              <span className="text-textGreen font-medium">Node.js, Python</span>,&nbsp;
               <span className="text-textGreen font-medium">
                 AWS</span> using modern tools like 
               Kubernetes, Terraform, Ansible, and CI/CD. Based in&nbsp;
               <span className="text-textGreen font-medium">
                 Canada
-              </span>, I help teams deploy faster and operate with confidence.
+              </span>, I help teams ship faster and scale reliably.
           </motion.p>
           
         </div>

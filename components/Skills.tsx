@@ -3,9 +3,8 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
-import { SkillData } from "@/constants/constant";
-import Image from "next/image";
 import { Autoplay } from "swiper/modules";
+import { SkillData } from "@/constants/constant";
 
 const Skills = () => {
   return (
@@ -29,9 +28,6 @@ const Skills = () => {
           <p className="text-gray-400 text-[20px]">
             Using the latest tech this world has to offer
           </p>
-          
-      
-
         </div>
         
         <Swiper
@@ -47,12 +43,8 @@ const Skills = () => {
         >
           {SkillData.map((skill, index) => (
             <SwiperSlide key={index}>
-              <img
-                src={skill.Image}
-                alt={skill.name}
-                width={skill.width}
-                height={skill.height}
-              />
+              <skill.icon className="text-5xl text-textGreen" />
+              <p className="text-sm text-white">{skill.name}</p>
             </SwiperSlide>
           ))}
         </Swiper>
@@ -70,19 +62,12 @@ const Skills = () => {
         >
           {SkillData.map((skill, index) => (
             <SwiperSlide key={index}>
-              <img
-                src={skill.Image}
-                alt={skill.name}
-                width={skill.width}
-                height={skill.height}
-              />
+              <skill.icon className="text-5xl text-textGreen" />
+              <p className="text-sm text-white">{skill.name}</p>
             </SwiperSlide>
           ))}
         </Swiper>
       </div>
-
-
-      
     </div>
   );
 };

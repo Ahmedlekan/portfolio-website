@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { FaGithub, FaYoutube, FaExternalLinkAlt, FaServer } from "react-icons/fa";
-import { SiAmazonaws, SiTypescript, SiReact, SiNodedotjs } from "react-icons/si";
+import { SiAmazon, SiTypescript, SiReact, SiNodedotjs } from "react-icons/si";
 
 type ProjectProps = {
   title: string;
@@ -15,7 +15,7 @@ type ProjectProps = {
 };
 
 const techIcons: Record<string, JSX.Element> = {
-  AWS: <SiAmazonaws className="text-orange-500" />,
+  AWS: <SiAmazon className="text-orange-500" />,
   React: <SiReact className="text-blue-400" />,
   NodeJS: <SiNodedotjs className="text-green-500" />,
   TypeScript: <SiTypescript className="text-blue-600" />,
