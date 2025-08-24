@@ -45,7 +45,6 @@ const Skills = () => {
             <SwiperSlide key={index}>
               <div className="flex flex-col items-center justify-center space-y-2 text-center px-2">
                 <skill.icon className="text-5xl text-textGreen" />
-                <p className="text-xs sm:text-sm text-white break-words">{skill.name}</p>
               </div>
             </SwiperSlide>
           ))}
@@ -66,7 +65,6 @@ const Skills = () => {
             <SwiperSlide key={index}>
               <div className="flex flex-col items-center justify-center space-y-2 text-center px-2">
                 <skill.icon className="text-5xl text-textGreen" />
-                <p className="text-xs sm:text-sm text-white break-words">{skill.name}</p>
               </div>
             </SwiperSlide>
           ))}
@@ -78,78 +76,3 @@ const Skills = () => {
 
 export default Skills;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// import React from 'react'
-// import SectionTitle from './SectionTitle'
-
-// const Experience = () => {
-//   return (
-//     <section
-//       id="experience"
-//       className="max-w-containerSmall mx-auto py-10 lgl:py-12 flex flex-col gap-8"
-//     >
-//       <SectionTitle title="Skills & Expereince" titleNo="02" />
-
-//         <div className="flex flex-col lgl:flex-row gap-16 relative">
-
-//             <div className=" basis-2/3 text-base text-textDark font-medium flex flex-col gap-4">
-//                 <p>
-//                     I have a good experience in front-end development including technologies
-//                     like <span className='text-textGreen'>
-//                         HTML5, CSS3, Tailwind, Sass javaScript, TypeScript, React, Nextjs, React Native,
-//                         Git
-//                     </span> etc.
-//                 </p>
-//                 <p>
-//                     I'm not a designer but i have a good sense pf aesthetics, and 
-//                     experience in responsive design, mobile-first web design. I put special
-//                     effort into optimizing my code and providing the best user experience.                    
-//                 </p>
-//             </div>
-
-
-//             <div className="basis-1/2 h-50 relative">        
-//                 <div className="pt-[10%] ml-[25%]">
-        
-//                 </div>
-//             </div>
-
-//         </div>
-//     </section>
-//   )
-// }
-
-// export default Experience

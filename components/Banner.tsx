@@ -39,7 +39,7 @@ const Banner = () => {
               rounded-full animate-ping-large"></div>
             </div>
           <span>
-          Available for Full-Stack & DevOps roles
+          Available for DevOps & Cloud roles
           </span>
         </motion.div>
 
@@ -54,11 +54,13 @@ const Banner = () => {
           >
             <TypeAnimation
               sequence={[
-                'Building Scalable Web Applications',
+                'Automating CI/CD Pipelines',
                 1000,
-                'Automating Cloud Infrastructure',
+                'Scaling Infrastructure with Kubernetes',
                 1000,
-                'Delivering End-to-End DevOps Solutions',
+                'Optimizing Cloud Costs on AWS',
+                1000,
+                'Delivering Secure & Reliable Cloud Solutions',
                 1000
               ]}
               wrapper="span"
@@ -67,7 +69,7 @@ const Banner = () => {
               className="text-textGreen"
             /> 
             <br />
-            with Full Stack & DevOps Excellence
+            with DevOps & Cloud Engineering Excellence
           </motion.h1>
 
           <motion.p
@@ -77,17 +79,16 @@ const Banner = () => {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.8, duration: 0.8 }}
           >
-            Hi! I'm <span className="text-textGreen font-medium">
-              Ahmed</span>, a Full-Stack & DevOps Engineer passionate about 
-              building scalable apps, and cloud infrastructure. I specialize in technologies like&nbsp;
-              <span className="text-textGreen font-medium">React, Nextjs</span>,&nbsp;
-              <span className="text-textGreen font-medium">Node.js, Python</span>,&nbsp;
-              <span className="text-textGreen font-medium">
-                AWS</span> using modern tools like 
-              Kubernetes, Terraform, Ansible, and CI/CD. Based in&nbsp;
-              <span className="text-textGreen font-medium">
-                Canada
-              </span>, I help teams ship faster and scale reliably.
+            Hi! I'm <span className="text-textGreen font-medium">Ahmed</span>, a DevOps & Cloud Engineer
+            passionate about automating infrastructure, optimizing cloud costs, and enabling scalable,
+            secure systems. I specialize in&nbsp;
+            <span className="text-textGreen font-medium">AWS</span>,&nbsp;
+            <span className="text-textGreen font-medium">Kubernetes</span>,&nbsp;
+            <span className="text-textGreen font-medium">Terraform, and Ansible</span>, with expertise
+              in building&nbsp; <span className="text-textGreen font-medium">CI/CD pipelines</span>&nbsp;
+              using tools like Jenkins and GitHub Actions. Based in&nbsp;
+            <span className="text-textGreen font-medium">Canada</span>, I help teams
+              accelerate releases, improve reliability, and scale cloud-native applications with confidence.
           </motion.p>
           
         </div>

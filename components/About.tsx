@@ -17,13 +17,10 @@ const About = () => {
             flex-col gap-4 max-w-containerxs"
             >
               <p className="mb-4">
-              Full Stack Developer & DevOps Engineer with 5+ years of experience building and
-              deploying scalable web applications and cloud-native infrastructure. Skilled in
-              modern JavaScript frameworks like React and Node.js, alongside DevOps tools
-              including AWS, Docker, Kubernetes, and Terraform. Experienced in implementing
-              CI/CD pipelines, Infrastructure as Code (IaC), and GitOps workflows to accelerate
-              delivery and improve system reliability. Passionate about building performant,
-              automated solutions that bridge software development and cloud operations.
+                I’m an AWS Certified DevOps & Cloud Engineer with 5+ years of experience designing,
+                automating, and scaling secure cloud-native infrastructures. I specialize in building
+                resilient systems with AWS, Docker, Kubernetes, Terraform, Ansible, GitHub Actions, and
+                Jenkins, driving both efficiency and reliability across enterprise environments.
               </p>
 
             </div>

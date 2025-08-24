@@ -1,84 +1,75 @@
 "use client"
 
-import {SiHtml5,SiCss3,SiJavascript,SiTailwindcss,SiReact,SiRedux,SiTypescript,
-    SiNextdotjs,SiFramer,SiStripe,SiMongodb,SiPython,SiDjango,SiDocker,
-    SiKubernetes,SiJenkins,SiMysql,SiPostgresql,SiAmazon} from "react-icons/si";
+import {SiTypescript,SiPython,SiDocker,SiKubernetes,SiJenkins,SiMysql,SiPostgresql,SiAmazon,SiTerraform,
+  SiAnsible,SiGithubactions,SiGit,SiBitbucket,SiLinux,SiGnubash, SiPrometheus, SiGrafana, SiSonarqube,
+  SiSonatype,SiHelm,SiArgo,SiNginx
+  } from "react-icons/si";
 
  export const SkillData = [
     {
-      name: "HTML5",
-      icon: SiHtml5,
+      icon: SiTerraform,
     },
     {
-      name: "CSS3",
-      icon: SiCss3,
+      icon: SiAnsible,
     },
     {
-      name: "JavaScript",
-      icon: SiJavascript,
+      icon: SiGithubactions,
     },
     {
-      name: "Tailwind CSS",
-      icon: SiTailwindcss,
+      icon: SiGit,
     },
     {
-      name: "React",
-      icon: SiReact,
+      icon: SiBitbucket,
     },
     {
-      name: "Redux",
-      icon: SiRedux,
+      icon: SiLinux,
     },
     {
-      name: "TypeScript",
       icon: SiTypescript,
     },
     {
-      name: "Next.js",
-      icon: SiNextdotjs,
+      icon: SiGnubash,
     },
     {
-      name: "Framer Motion",
-      icon: SiFramer,
+      icon: SiPrometheus,
     },
     {
-      name: "Stripe Payment",
-      icon: SiStripe,
+      icon: SiGrafana,
     },
     {
-      name: "MongoDB",
-      icon: SiMongodb,
+      icon: SiSonarqube,
     },
     {
-        name: "MySQL",
-        icon: SiMysql,
-      },
-      {
-        name: "PostgreSQL",
-        icon: SiPostgresql,
-      },
+      icon: SiMysql,
+    },
     {
-      name: "Python",
+      icon: SiPostgresql,
+    },
+    {
       icon: SiPython,
     },
     {
-        name: "AWS",
-        icon: SiAmazon,
-      },
-    {
-      name: "Django",
-      icon: SiDjango,
+      icon: SiSonatype,
     },
     {
-      name: "Docker",
+      icon: SiAmazon,
+    },
+    {
+      icon: SiHelm,
+    },
+    {
+      icon: SiArgo,
+    },
+    {
+      icon: SiNginx,
+    },
+    {
       icon: SiDocker,
     },
     {
-      name: "Kubernetes",
       icon: SiKubernetes,
     },
     {
-      name: "Jenkins",
       icon: SiJenkins,
     },
 ];
