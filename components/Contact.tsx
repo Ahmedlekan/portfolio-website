@@ -62,13 +62,13 @@ const Contact = () => {
           What’s Next?
         </p>
         <h2 className="font-titleFont text-5xl font-semibold">Get In Touch</h2>
-        <p className=" max-w-containerxs text-center text-gray-400 mb-12">
+        <p className=" max-w-containerxs text-lg text-center text-gray-400 mb-12">
           I'm currently open to full-time, part-time, contract, or freelance
           opportunities. Whether you have a project in mind or just
           want to say hello, I'll do my best to respond promptly!
         </p>
 
-        <div className=" max-w-containerSmall mt-10">  
+        <div className=" max-w-containerSmall">  
         <form action="" onSubmit={handleSubmit} ref={formRef}>
           <ul className=" p-0 m-0">
 

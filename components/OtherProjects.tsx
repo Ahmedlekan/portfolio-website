@@ -20,4 +20,5 @@ const OtherProjects = () => {
   );
 };
 
+
 export default OtherProjects;

@@ -11,7 +11,7 @@ const Skills = () => {
     <div
     id="skills"
       className="max-w-contentContainer mx-auto flex 
-      justify-center items-center mt-20"
+      justify-center items-center my-20"
     >
       <div className="flex flex-col gap-20 max-w-[80%] text-center items-center">
         <div className="flex flex-col items-center gap-4">
