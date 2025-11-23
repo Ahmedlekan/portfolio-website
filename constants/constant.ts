@@ -110,7 +110,7 @@ export const projects = [
       ],
       links: {
         github: 'https://github.com/Ahmedlekan/Job-hunt',
-        live: 'https://lekanmi.xyz/'
+        live: 'https://job-hunt-rp1l.vercel.app/'
       }
     },
     {
