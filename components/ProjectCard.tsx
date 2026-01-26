@@ -61,28 +61,7 @@ const ProjectCard: React.FC<ProjectProps> = ({
                 <FaGithub size={18} />
               </a>
             )}
-            {links?.youtube && (
-              <a 
-                href={links.youtube} 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="text-gray-400 hover:text-red-500 transition-colors"
-                aria-label="YouTube demo"
-              >
-                <FaYoutube size={18} />
-              </a>
-            )}
-            {links?.live && (
-              <a 
-                href={links.live} 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="text-gray-400 hover:text-textGreen transition-colors"
-                aria-label="Live demo"
-              >
-                <FaExternalLinkAlt size={16} />
-              </a>
-            )}
+            {<></>}
           </div>
         </div>
 

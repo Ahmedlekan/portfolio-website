@@ -24,7 +24,7 @@ const Education = () => {
             <div className="bg-gray-900/50 border border-gray-800 rounded-xl p-6 
               hover:border-textGreen/30 transition-colors">
               <h3 className="text-base font-semibold text-white">
-                  Higher National Diploma in Electrical Engineering
+                  Higher National Diploma in Computer Engineering
               </h3>
               <div className="flex flex-col sm:flex-row sm:items-center gap-1
                   text-sm text-textGreen mt-1 mb-4">

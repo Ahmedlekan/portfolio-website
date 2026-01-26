@@ -86,7 +86,7 @@ export const projects = [
     {
         title: 'Bookstore',
         description: 'Book Sales Engagement platform with micro-service architecture built with Express, Mongodb, and NodeJS, featuring a React UI running on AWS infrastructure.',
-        techStack: ['AWS', 'React', 'NodeJS', 'Mongodb', 'Express', 'Docker', "Typescript"],
+        techStack: ['React', 'Typescript', 'Mongodb', 'AWS', "Kubernetes", "Terraform", "Jenkins", "Helm", "Argocd", "Grafana", "Prometheus", "Docker", "Express", "Nodejs"],
         links: {
         github: 'https://github.com/Ahmedlekan/bookstore',
         live: 'https://mern-bookstore-6ysr.onrender.com'
@@ -95,7 +95,7 @@ export const projects = [
     {
         title: 'QuickBook',
         description: 'A booking website that allows users to browse listings, make reservations, and manage bookings with secure authentication and an admin panel for managing listings and users..',
-        techStack: ['React', 'Typescript', 'Mongodb', 'AWS', "Docker", "Express", "Nodejs"],
+        techStack: ['React', 'Typescript', 'Mongodb', 'AWS', "Kubernetes", "Terraform", "Jenkins", "Helm", "Argocd", "Grafana", "Prometheus", "Docker", "Express", "Nodejs"],
         links: {
         github: 'https://github.com/Ahmedlekan/bookingWebApp',
         live: 'https://bookingwebapp-o1kc.onrender.com/'
@@ -141,3 +141,4 @@ export const projects = [
     },
 ];
   
+
