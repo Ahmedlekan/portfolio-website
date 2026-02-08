@@ -1,4 +1,5 @@
 import { FaGraduationCap, FaAws, FaCertificate } from "react-icons/fa";
+import { BsMicrosoft } from 'react-icons/bs';
 import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
@@ -90,6 +91,36 @@ const Education = () => {
                   <div>
                     <h3 className="text-base font-semibold text-white">
                       AWS Certified DevOps Engineer – Professional
+                    </h3>
+                  </div>
+                </div>
+              </div>
+              
+            </Link>
+            
+            <Link
+              href="https://learn.microsoft.com/api/credentials/share/en-us/AhmedFatiu-0665/2440FA2EDC21B3AE?sharingId=5F82683ABF6A34CF"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open Microsoft Certified: Azure Administrator Associate badge"
+              className="block"
+            >
+              <div
+                className="bg-gray-900/50 border border-gray-800 rounded-xl p-6
+                          hover:border-textGreen/30 transition-colors group focus:outline-none
+                          focus-visible:ring-2 focus-visible:ring-textGreen/60"
+              >
+                <div className="flex items-start gap-3">
+                  <div
+                    className="p-2 bg-gray-800 rounded-lg border border-gray-700
+                              group-hover:border-textGreen/50 shrink-0"
+                  >
+                    <BsMicrosoft className="text-sky-400" size={25} />
+                  </div>
+
+                  <div>
+                    <h3 className="text-base font-semibold text-white">
+                      Microsoft Certified - Azure Administrator Associate
                     </h3>
                   </div>
                 </div>
