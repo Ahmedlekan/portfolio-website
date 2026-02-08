@@ -10,16 +10,13 @@ const experiences = [
       Hybrid: true,
       icon: <FaLaptopCode className="text-textGreen" size={20} />,
       highlights: [
-        "Engineered CI/CD pipelines with Jenkins and GitHub/GitLab, automating build, test, and deployment workflows—reducing release cycles by 60% and minimizing manual errors.",
-        "Automated infrastructure provisioning using Terraform and Ansible across multi-cloud and multi-region environments, leveraging workspaces for consistency—cutting setup time from hours to minutes and ensuring standardized deployments.",
-        "Containerized applications with Docker, optimizing resource limits and requests to ensure performance—lowering infrastructure costs by 15% without compromising reliability.",
-        "Orchestrated Kubernetes clusters with high availability and auto-scaling, implementing rolling updates and Helm charts—increasing application resilience and handling 3x peak traffic with zero downtime.",
-        "Streamlined Java CI/CD pipelines using Maven and Nexus, integrating SonarQube for quality gates and security scans—reducing build times by 20% and improving code reliability.",
-        "Built disaster recovery automation with custom Shell scripts and AWS Lambda for routine backups—enhancing business continuity and meeting RPO/RTO objectives.",
-        "Integrated monitoring and observability stack with Prometheus, Grafana, and AWS CloudWatch—reducing downtime by 15% through proactive alerting and faster incident response.",
-        "Strengthened DevSecOps practices by embedding OWASP Dependency-Check and vulnerability scanning into CI/CD pipelines—ensuring secure deployments and reducing production risks.",
-        "Improved team efficiency by automating repetitive server maintenance tasks—freeing 25% of engineering time for strategic projects and innovation.",
-        "Automated deployment of a static website on AWS S3 using Terraform, integrated with CloudFront, Route53, WAF, and ACM, reducing global latency by 40% and ensuring secure, consistent infrastructure.",
+        "Designed and implemented multi-cloud DevOps strategies across AWS and Azure, utilizing Terraform for Infrastructure-as-Code and Jenkins/Azure DevOps for CI/CD pipelines—standardizing deployments and reducing release cycles.",
+        "Automated infrastructure provisioning using Terraform and Ansible across AWS and Azure environments, leveraging Terraform workspaces and Azure Landing Zones—cutting setup time from hours to minutes and ensuring standardized multi-cloud deployments.",
+        "Containerized applications with Docker and optimized resource allocation for both AWS ECS/EKS and Azure AKS, lowering infrastructure costs without compromising reliability across cloud platforms.",
+        "Orchestrated Kubernetes clusters with high availability and auto-scaling on AWS EKS and Azure AKS, implementing rolling updates and Helm charts—increasing application resilience and handling 3x peak traffic with zero downtime.",
+        "Streamlined Java CI/CD pipelines using Maven and Nexus, integrating SonarQube for quality gates—reducing build times on AWS.",
+        "Integrated monitoring and observability stack with Prometheus, Grafana, AWS CloudWatch, and Azure Monitor, reducing downtime through proactive alerting and faster incident response.",
+        "Improved team efficiency by automating repetitive maintenance tasks across AWS and Azure environments, freeing engineering time for strategic multi-cloud initiatives.",
       ]
     },
 
