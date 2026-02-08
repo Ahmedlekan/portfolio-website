@@ -58,7 +58,7 @@ const Banner = () => {
                 1000,
                 'Scaling Infrastructure with Kubernetes',
                 1000,
-                'Optimizing Cloud Costs on AWS',
+                'Optimizing Cloud Costs on AWS & AZURE',
                 1000,
                 'Delivering Secure & Reliable Cloud Solutions',
                 1000
@@ -83,10 +83,12 @@ const Banner = () => {
             passionate about automating infrastructure, optimizing cloud costs, and enabling scalable,
             secure systems. I specialize in&nbsp;
             <span className="text-textGreen font-medium">AWS</span>,&nbsp;
+            <span className="text-textGreen font-medium">Microsoft Azure</span>,&nbsp;
+            <span className="text-textGreen font-medium">Docker</span>,&nbsp;
             <span className="text-textGreen font-medium">Kubernetes</span>,&nbsp;
             <span className="text-textGreen font-medium">Terraform, and Ansible</span>, with expertise
               in building&nbsp; <span className="text-textGreen font-medium">CI/CD pipelines</span>&nbsp;
-              using tools like Jenkins and GitHub Actions. Based in&nbsp;
+              using tools like Azure pipeline, Jenkins and GitHub Actions. Based in&nbsp;
             <span className="text-textGreen font-medium">Canada</span>, I help teams
               accelerate releases, improve reliability, and scale cloud-native applications with confidence.
           </motion.p>
