@@ -13,12 +13,12 @@ const About = () => {
         {/* Text Content */}
         <div className="w-full lg:w-3/5 text-lg text-textDark font-medium flex flex-col gap-2">
           <p>
-            I'm an AWS Certified DevOps & Cloud Engineer with 5+ years of experience designing,
+            I'm an AWS and Azure certified DevOps & Cloud Engineer with 5+ years of experience designing,
             automating, and scaling secure cloud-native infrastructures.
           </p>
           <p>
-            I specialize in building resilient systems with AWS, Docker, Kubernetes, Terraform, Ansible, 
-            GitHub Actions, and Jenkins, driving both efficiency and reliability across enterprise
+            I specialize in building resilient systems with Microsoft Azure, AWS, Docker, Kubernetes, Terraform, Ansible, 
+            GitHub Actions, Azure pipeline, and Jenkins, driving both efficiency and reliability across enterprise
             environments.
           </p>
           <div className="mt-4 flex flex-wrap gap-3">
@@ -26,7 +26,10 @@ const About = () => {
               AWS Certified
             </span>
             <span className="bg-gray-800/50 px-4 py-2 rounded-lg text-sm text-textGreen border border-gray-700">
-              Cloud Automation
+              Azure Certified
+            </span>
+            <span className="bg-gray-800/50 px-4 py-2 rounded-lg text-sm text-textGreen border border-gray-700">
+              Automation
             </span>
             <span className="bg-gray-800/50 px-4 py-2 rounded-lg text-sm text-textGreen border border-gray-700">
               DevOps
