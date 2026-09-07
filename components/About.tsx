@@ -1,73 +1,21 @@
-import SectionTitle from "./SectionTitle";
 import Image from "next/image";
+import SectionTitle from "./SectionTitle";
 
-const About = () => {
+export default function About() {
   return (
-    <section
-      id="about"
-      className="max-w-containerSmall mx-auto px-4"
-    >
-      <SectionTitle title="About Me" />
-      
-      <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16 mt-10">
-        {/* Text Content */}
-        <div className="w-full lg:w-3/5 text-lg text-textDark font-medium flex flex-col gap-2">
-          <p>
-            I'm an AWS and Azure certified DevOps & Cloud Engineer with 5+ years of experience designing,
-            automating, and scaling secure cloud-native infrastructures.
-          </p>
-          <p>
-            I specialize in building resilient systems with Microsoft Azure, AWS, Docker, Kubernetes, Terraform, Ansible, 
-            GitHub Actions, Azure pipeline, and Jenkins, driving both efficiency and reliability across enterprise
-            environments.
-          </p>
-          <div className="mt-4 flex flex-wrap gap-3">
-            <span className="bg-gray-800/50 px-4 py-2 rounded-lg text-sm text-textGreen border border-gray-700">
-              AWS Certified
-            </span>
-            <span className="bg-gray-800/50 px-4 py-2 rounded-lg text-sm text-textGreen border border-gray-700">
-              Azure Certified
-            </span>
-            <span className="bg-gray-800/50 px-4 py-2 rounded-lg text-sm text-textGreen border border-gray-700">
-              Automation
-            </span>
-            <span className="bg-gray-800/50 px-4 py-2 rounded-lg text-sm text-textGreen border border-gray-700">
-              DevOps
-            </span>
-            <span className="bg-gray-800/50 px-4 py-2 rounded-lg text-sm text-textGreen border border-gray-700">
-              DevSecOps
-            </span>
-            <span className="bg-gray-800/50 px-4 py-2 rounded-lg text-sm text-textGreen border border-gray-700">
-              Cloud Infrastructure
-            </span>
-            <span className="bg-gray-800/50 px-4 py-2 rounded-lg text-sm text-textGreen border border-gray-700">
-              Cloud Architect
-            </span>
-            <span className="bg-gray-800/50 px-4 py-2 rounded-lg text-sm text-textGreen border border-gray-700">
-              CI/CD Pipelines
-            </span>
-          </div>
+    <section id="about" aria-labelledby="about-title" className="section-shell">
+      <SectionTitle id="about-title" title="About me" />
+      <div className="grid items-center gap-10 lg:grid-cols-[1fr_240px]">
+        <div className="space-y-4 text-lg leading-relaxed text-textDark">
+          <p>I’m an AWS Certified DevOps Engineer with 5+ years of experience designing, automating, and supporting scalable cloud infrastructure, CI/CD pipelines, and Kubernetes platforms across enterprise and high-growth environments.</p>
+          <p>My work focuses on AWS, Amazon EKS, Terraform, Docker, GitOps, DevSecOps, and observability. I build reliable systems with strong attention to security, scalability, performance, and operational efficiency. Through automation, Kubernetes orchestration, improved monitoring, and streamlined delivery workflows, I have reduced deployment and incident response times by 60%.</p>
+          <p>I apply SRE practices such as SLOs, SLIs, error budgets, blameless postmortems, graceful degradation, and high-availability design. I also build observability into distributed systems using Prometheus, Grafana, ELK, Jaeger, OpenTelemetry, CloudWatch, and AWS X-Ray.</p>
+          <p>I’m currently focused on DevOps, Platform Engineering, SRE, and Cloud Infrastructure opportunities.</p>
+          <a href="#education" className="inline-flex min-h-11 items-center text-base font-medium text-textGreen hover:underline">View my education &amp; credentials →</a>
         </div>
-        
-        {/* Image Container */}
-        <div className="w-full lg:w-2/5 flex justify-center lg:justify-end">
-  <div className="relative">
-    <div className="w-64 h-64 lg:w-72 lg:h-72 rounded-full overflow-hidden border-4 border-textGreen/30 shadow-lg shadow-textGreen/10 relative">
-      <Image
-        src="/images/Ahmed1.jpeg"
-        alt="Ahmed - DevOps & Cloud Engineer"
-        fill
-        priority
-        sizes="(min-width: 1024px) 18rem, 16rem"
-        className="object-cover"
-      />
-    </div>
-  </div>
-</div>
-
+        <Image src="/images/Fatiu.jpeg" alt="Ahmed, DevOps and Cloud Engineer" width={240} height={240}
+          sizes="240px" className="mx-auto h-60 w-60 rounded-full border-4 border-textGreen/30 object-cover" />
       </div>
     </section>
   );
-};
-
-export default About;
+}

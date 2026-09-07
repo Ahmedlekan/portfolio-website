@@ -1,144 +1,40 @@
-import { FaArrowDown, FaFileDownload } from "react-icons/fa";
-import { motion } from "framer-motion";
-import { TypeAnimation } from 'react-type-animation';
+import Image from "next/image";
+import { FaArrowDown } from "react-icons/fa";
 
-const Banner = () => {
+export default function Banner() {
   return (
-    <motion.div 
-      className="max-w-containerSmall mx-auto pb-16 pt-3 relative z-0"
-      id="home"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.8 }}
-    >
-      <div className="flex flex-col items-center px-4 gap-4 ">
-        {/* Avatar with animation */}
-        <motion.div 
-          className="size-28 md:size-36 mb-2"
-          initial={{ y: -20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.2, duration: 0.8 }}
-        >
-          <img
-            src="../images/memoji-computer.png"
-            alt="Ahmed's Memoji"
-            className="size-full object-contain hover:scale-105 transition-transform duration-300"
-          />
-        </motion.div>
-
-        {/* Availability badge */}
-        <motion.div 
-          className="bg-gray-950 border border-gray-800 
-            px-4 py-1.5 inline-flex items-center gap-4 rounded-lg"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.4, duration: 0.8 }}
-        >
-          <div className=" bg-green-500 h-2 w-2 rounded-full relative">
-              <div className=" bg-green-500 absolute h-2 w-2
-              rounded-full animate-ping-large"></div>
-            </div>
-          <span>
-          Available for DevOps & Cloud roles
-          </span>
-        </motion.div>
-
-        {/* Headline */}
-        <div className="max-w-3xl mx-auto text-center">
-          <motion.h1
-            className="text-2xl md:text-4xl font-bold
-              mb-6 leading-tight"
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.6, duration: 0.8 }}
-          >
-            <TypeAnimation
-              sequence={[
-                'Automating CI/CD Pipelines',
-                1000,
-                'Scaling Infrastructure with Kubernetes',
-                1000,
-                'Optimizing Cloud Costs on AWS & AZURE',
-                1000,
-                'Delivering Secure & Reliable Cloud Solutions',
-                1000
-              ]}
-              wrapper="span"
-              speed={50}
-              repeat={Infinity}
-              className="text-textGreen"
-            /> 
-            <br />
-            with DevOps & Cloud Engineering Excellence
-          </motion.h1>
-
-          <motion.p
-            className="text-lg text-gray-400
-            mx-auto leading-relaxed max-w-containerxs"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.8, duration: 0.8 }}
-          >
-            Hi! I'm <span className="text-textGreen font-medium">Ahmed</span>, a DevOps & Cloud Engineer
-            passionate about automating infrastructure, optimizing cloud costs, and enabling scalable,
-            secure systems. I specialize in&nbsp;
-            <span className="text-textGreen font-medium">AWS</span>,&nbsp;
-            <span className="text-textGreen font-medium">Microsoft Azure</span>,&nbsp;
-            <span className="text-textGreen font-medium">Docker</span>,&nbsp;
-            <span className="text-textGreen font-medium">Kubernetes</span>,&nbsp;
-            <span className="text-textGreen font-medium">Terraform, and Ansible</span>, with expertise
-              in building&nbsp; <span className="text-textGreen font-medium">CI/CD pipelines</span>&nbsp;
-              using tools like Azure pipeline, Jenkins and GitHub Actions. Based in&nbsp;
-            <span className="text-textGreen font-medium">Canada</span>, I help teams
-              accelerate releases, improve reliability, and scale cloud-native applications with confidence.
-          </motion.p>
-          
+    <section id="home" aria-labelledby="hero-title" className="section-shell pb-16 pt-12 md:pb-20 md:pt-20">
+      <div className="grid items-center gap-10 lg:grid-cols-[1fr_220px]">
+        <div>
+          <p className="mb-6 inline-flex items-center gap-3 rounded-full border border-gray-700 bg-gray-900 px-4 py-2 text-sm">
+            <span aria-hidden="true" className="h-2 w-2 shrink-0 rounded-full bg-textGreen" />
+            Available for DevOps, SRE &amp; Platform Engineering roles
+          </p>
+          <h1 id="hero-title" className="text-4xl font-bold leading-tight tracking-tight md:text-5xl">
+            <span className="mt-3 block text-textGreen">DevOps &amp; Cloud Engineer</span>
+          </h1>
+          <p className="mt-6 max-w-containerxs text-lg leading-relaxed text-textDark">
+            I’m Ahmed, a DevOps &amp; Cloud Engineer with 5+ years of experience designing,
+            automating, and operating production infrastructure across AWS and Azure.
+            I specialize in Kubernetes, Infrastructure as Code, CI/CD, GitOps, and observability,
+            with a strong focus on reliability, security, scalability, and cost efficiency.
+          </p>
+          <div className="mt-8 flex flex-col gap-4 sml:flex-row">
+            <a href="#project" className="button-primary">Explore my work <FaArrowDown aria-hidden="true" /></a>
+            <a href="#contact" className="button-secondary">Contact me</a>
+          </div>
+          <p className="mt-6 text-sm text-textDark">AWS &amp; Azure Certified · Kubernetes · Terraform · CI/CD · Observability</p>
         </div>
-
-        {/* CTA Buttons */}
-        <motion.div 
-          className="flex flex-col items-center justify-center
-          gap-4 md:flex-row"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1, duration: 0.8 }}
-        >
-          <motion.button 
-            whileHover={{ y: -5 }}
-            whileTap={{ scale: 0.95 }}
-            className="flex items-center gap-3 border border-textGreen/30 
-              bg-gray-900/50 px-8 py-4 rounded-lg text-textGreen 
-              hover:bg-textGreen/10 hover:shadow-lg hover:shadow-textGreen/10 
-              transition-all duration-300"
-          >
-            <span className="font-medium">Explore my work</span>
-            <FaArrowDown className="animate-bounce" />
-          </motion.button>
-
-          <motion.a
-            href="/images/resume.pdf"
-            download
-            whileHover={{ y: -5 }}
-            whileTap={{ scale: 0.95 }} 
-            className="flex items-center gap-3 bg-textGreen 
-            text-gray-900 px-8 py-4 rounded-lg font-medium hover:bg-textGreen/90
-            hover:shadow-lg hover:shadow-textGreen/20 transition-all duration-300"
-          >
-            <FaFileDownload className="mr-2" />
-            <span>Download CV</span>
-          </motion.a>
-
-        </motion.div>
+        <Image
+          src="/images/memoji-computer.png"
+          alt=""
+          width={220}
+          height={220}
+          priority
+          sizes="(min-width: 1024px) 220px, 160px"
+          className="order-first mx-auto w-40 lg:order-none lg:w-[220px]"
+        />
       </div>
-
-      {/* Decorative elements */}
-      <div className="absolute -top-20 -left-20 w-72 h-72 bg-textGreen/10
-      rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob"></div>
-      <div className="absolute -bottom-20 -right-20 w-72 h-72 bg-purple-500/10
-      rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob
-      animation-delay-2000"></div>
-    </motion.div>
+    </section>
   );
-};
-
-export default Banner;
+}

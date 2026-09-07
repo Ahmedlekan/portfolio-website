@@ -1,26 +1,17 @@
 import SectionTitle from "./SectionTitle";
 import ProjectCard from "./ProjectCard";
+import OtherProjects from "./OtherProjects";
 import { projects } from "@/constants/constant";
 
-const Projects = () => {
-
-    const projectsSlice = projects.slice(0, 3)
-
+export default function Projects() {
   return (
-    <section className=" max-w-containerSmall mx-auto px-4"
-    >
-        <SectionTitle title="Projects Highlights"/>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
-            {projectsSlice.map((project, index) => (
-            <ProjectCard 
-                key={index} 
-                {...project} 
-            />
-            ))}
-        </div>
+    <section id="project" aria-labelledby="projects-title" className="section-shell">
+      <SectionTitle id="projects-title" title="Featured projects"
+        description="A closer look at my applications, cloud infrastructure, and delivery tooling. Explore the source code on GitHub." />
+      <div className="grid gap-6 lg:grid-cols-3">
+        {projects.slice(0, 3).map((project) => <ProjectCard key={project.title} {...project} />)}
+      </div>
+      <OtherProjects />
     </section>
-  )
+  );
 }
-
-export default Projects
-

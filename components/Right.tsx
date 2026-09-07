@@ -1,47 +1,22 @@
 import { TbBrandGithub } from "react-icons/tb";
-import {SlSocialLinkedin,SlSocialTwitter} from "react-icons/sl";
-import Link from "next/link";
+import { SlSocialLinkedin, SlSocialTwitter } from "react-icons/sl";
+import { socialLinks } from "@/constants/constant";
 
-const RightSide = () => {
+const icons = [TbBrandGithub, SlSocialLinkedin, SlSocialTwitter];
+
+export default function RightSide() {
   return (
-    <div className="w-full h-full flex flex-col items-center 
-      justify-end gap-4 text-textLight"
-    >
-      <div className="flex flex-col gap-4">
-        <Link href="https://github.com/Ahmedlekan" target="_blank">
-          <span className="w-10 h-10 text-xl bg-hoverColor rounded-full 
-            inline-flex items-center justify-center hover:text-textGreen 
-              cursor-pointer hover:-translate-y-2 transition-all duration-300"
-          >
-            <TbBrandGithub />
-          </span>
-        </Link>
-        
-        <Link
-          href="https://www.linkedin.com/in/lekan-ahmed-8aa401214"
-          target="_blank"
-        >
-          <span className="w-10 h-10 text-xl bg-hoverColor rounded-full 
-            inline-flex items-center justify-center hover:text-textGreen 
-              cursor-pointer hover:-translate-y-2 transition-all duration-300"
-          >
-            <SlSocialLinkedin />
-          </span>
-        </Link>
-
-
-        <Link href="https://twitter.com/AhmedLekan11" target="_blank">
-          <span className="w-10 h-10 text-xl bg-hoverColor rounded-full 
-            inline-flex items-center justify-center hover:text-textGreen 
-            cursor-pointer hover:-translate-y-2 transition-all duration-300"
-          >
-            <SlSocialTwitter />
-          </span>
-        </Link>
-      </div>
-      <div className="w-[2px] h-32 bg-textDark"></div>
-    </div>
+    <nav aria-label="Social profiles" className="flex gap-3">
+      {socialLinks.map((link, index) => {
+        const Icon = icons[index];
+        return (
+          <a key={link.label} href={link.href} target="_blank" rel="noopener noreferrer"
+            aria-label={link.label + " (opens in a new tab)"}
+            className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-gray-700 text-xl transition-colors hover:border-textGreen hover:text-textGreen">
+            <Icon aria-hidden="true" />
+          </a>
+        );
+      })}
+    </nav>
   );
-};
-
-export default RightSide;
+}

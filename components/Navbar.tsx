@@ -1,372 +1,116 @@
-"use client"
+"use client";
 
-import { useRef, useState } from "react";
-import Link from "next/link";
-import { TbBrandGithub } from "react-icons/tb";
-import {SlSocialLinkedin, SlSocialTwitter } from "react-icons/sl";
-import { MdOutlineClose } from "react-icons/md";
-import { IoMdPulse } from "react-icons/io";
-import { motion } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
+import { navLinks } from "@/constants/constant";
+import RightSide from "./Right";
 
+export default function Navbar() {
+  const [active, setActive] = useState("#home");
+  const [open, setOpen] = useState(false);
+  const dialogRef = useRef<HTMLDialogElement>(null);
 
-const Navbar = () => {
+  useEffect(() => {
+    let frame = 0;
+    const update = () => {
+      const sections = navLinks.map(({ href }) => document.querySelector(href));
+      let current = "#home";
+      sections.forEach((section, index) => {
+        if (section && section.getBoundingClientRect().top <= 140) {
+          current = navLinks[index].href;
+        }
+      });
+      if (window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 8) {
+        current = "#contact";
+      }
+      setActive(current);
+    };
+    const schedule = () => {
+      cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(update);
+    };
+    update();
+    window.addEventListener("scroll", schedule, { passive: true });
+    window.addEventListener("resize", schedule);
+    return () => {
+      cancelAnimationFrame(frame);
+      window.removeEventListener("scroll", schedule);
+      window.removeEventListener("resize", schedule);
+    };
+  }, []);
 
-  const ref = useRef<string | any>("");
-  const [show, setShow] = useState(false);
-  
-  const handleScroll = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
-    e.preventDefault();
-    setShow(false);
-    const href = e.currentTarget.href;
-    const targetId = href.replace(/.*\#/, "");
-    const elem = document.getElementById(targetId);
-    elem?.scrollIntoView({
-      behavior: "smooth",
-    });
-    // Update the class name of the clicked link
-    const links = document.querySelectorAll(".nav-link");
-    links.forEach((link) => {
-      link.classList.remove("active");
-    });
-    e.currentTarget.classList.add("active");
-  };
+  useEffect(() => {
+    if (!open) return;
+    const previous = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    const desktop = window.matchMedia("(min-width: 768px)");
+    const closeOnDesktop = () => {
+      if (desktop.matches) dialogRef.current?.close();
+    };
+    desktop.addEventListener("change", closeOnDesktop);
+    closeOnDesktop();
+    return () => {
+      document.body.style.overflow = previous;
+      desktop.removeEventListener("change", closeOnDesktop);
+    };
+  }, [open]);
 
-  function handleClick(e: any) {
-    if (e.target.contains(ref.current)) {
-      // do something with myRef.current
-      setShow(false);
-    }
-  }
-  
+  const links = (mobile = false) => navLinks.map(({ href, label }) => (
+    <li key={href}>
+      <a href={href} aria-current={active === href ? "location" : undefined}
+        onClick={() => {
+          setActive(href);
+          if (mobile) dialogRef.current?.close();
+        }}
+        className={"inline-flex min-h-11 items-center rounded px-2 text-sm font-medium transition-colors hover:text-textGreen " +
+          (active === href ? "text-textGreen" : "text-textLight")}>
+        {label}
+      </a>
+    </li>
+  ));
+
   return (
-    <div className="w-full shadow-navbarShadow h-20 lg:h-[12vh] 
-    sticky top-0 z-50  bg-bodyColor px-4"
-    >
-      <div className="max-w-container h-full mx-auto py-1 font-titleFont flex 
-        items-center justify-between"
-      >
-        {/* ============ Logo Start here ============ */}
-        <Link href="/">
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.1 }}
-          >
-            <div className="flex gap-1 items-center text-textGreen
-             hover:text-textDark">
-              <h1 className="font-bold text-2xl">
-                Diplo
-              </h1>
-              <IoMdPulse
-                className="text-3xl"
-                aria-hidden="true"
-              />
+    <header className="sticky top-0 z-50 border-b border-gray-800 bg-bodyColor/95 backdrop-blur">
+      <nav aria-label="Main navigation" className="mx-auto flex h-20 max-w-containerSmall items-center justify-between gap-4 px-6">
+        <a href="#home" aria-label="Ahmed, home" className="text-2xl font-bold text-textGreen">Ahmed<span aria-hidden="true">.</span></a>
+        <ul className="hidden items-center gap-3 mdl:flex">{links()}</ul>
+        <button type="button" aria-label="Open navigation menu" aria-expanded={open} aria-controls="mobile-navigation"
+          className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-lg border border-gray-700 px-3 text-textGreen mdl:hidden"
+          onClick={() => {
+            dialogRef.current?.showModal();
+            setOpen(true);
+          }}>
+          Menu
+        </button>
+      </nav>
+      <dialog id="mobile-navigation" ref={dialogRef} aria-labelledby="mobile-menu-title"
+        onClose={() => setOpen(false)}
+        onKeyDown={(event) => {
+          if (event.key !== "Tab") return;
+          const controls = event.currentTarget.querySelectorAll<HTMLElement>("a[href], button:not([disabled])");
+          const first = controls[0];
+          const last = controls[controls.length - 1];
+          if (event.shiftKey && document.activeElement === first) {
+            event.preventDefault();
+            last?.focus();
+          } else if (!event.shiftKey && document.activeElement === last) {
+            event.preventDefault();
+            first?.focus();
+          }
+        }}
+        onClick={(event) => {
+          if (event.target === event.currentTarget) dialogRef.current?.close();
+        }}
+        className="fixed inset-0 m-0 h-dvh max-h-none w-full max-w-none bg-transparent p-0 text-textLight backdrop:bg-black/60">
+        <div className="ml-auto flex h-full w-[min(88vw,24rem)] flex-col gap-6 overflow-y-auto bg-bodyColor p-6">
+          <div className="flex items-center justify-between gap-3">
+            <h2 id="mobile-menu-title" className="text-lg font-semibold">Navigation</h2>
+            <button type="button" autoFocus onClick={() => dialogRef.current?.close()}
+              className="min-h-11 rounded-lg border border-gray-700 px-4 text-textGreen">Close</button>
           </div>
-          </motion.div>
-        </Link>
-        {/* ============ Logo End here ============== */}
-        
-        {/* ============ ListItem Start here ======== */}
-        
-        <div className="hidden mdl:inline-flex gap-7">
-
-          <ul className="flex text-[15px] gap-7">
-            <Link
-              className="flex items-center gap-1 font-medium text-textDark 
-              hover:text-textGreen cursor-pointer duration-300 nav-link"
-              href="#home"
-              onClick={handleScroll}
-            >
-              <motion.li
-                initial={{ y: -10, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.1 }}
-              >
-                Home
-              </motion.li>
-            </Link>
-
-            <Link
-              className="flex items-center gap-1 font-medium text-textDark 
-                hover:text-textGreen cursor-pointer duration-300 nav-link"
-              href="#about"
-              onClick={handleScroll}
-            >
-              <motion.li
-                initial={{ y: -10, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.1, delay: 0.1 }}
-              >
-                About
-              </motion.li>
-            </Link>
-
-            <Link
-              className="flex items-center gap-1 font-medium text-textDark 
-                hover:text-textGreen cursor-pointer duration-300 nav-link"
-              href="#skills"
-              onClick={handleScroll}
-            >
-              <motion.li
-                initial={{ y: -10, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.1, delay: 0.2 }}
-              >
-                Skills
-              </motion.li>
-            </Link>
-            
-            <Link
-              className="flex items-center gap-1 font-medium text-textDark 
-                hover:text-textGreen cursor-pointer duration-300 nav-link"
-              href="#experience"
-              onClick={handleScroll}
-            >
-              <motion.li
-                initial={{ y: -10, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.1, delay: 0.2 }}
-              >
-                Experience
-              </motion.li>
-            </Link>
-
-            <Link
-              className="flex items-center gap-1 font-medium text-textDark 
-                hover:text-textGreen cursor-pointer duration-300 nav-link"
-              href="#project"
-              onClick={handleScroll}
-            >
-              <motion.li
-                initial={{ y: -10, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.1, delay: 0.3 }}
-              >
-                Project
-              </motion.li>
-            </Link>
-
-            <Link
-              className="flex items-center gap-1 font-medium text-textDark 
-                hover:text-textGreen cursor-pointer duration-300 nav-link"
-              href="#contact"
-              onClick={handleScroll}
-            >
-              <motion.li
-                initial={{ y: -10, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.1, delay: 0.4 }}
-              >
-                Contact
-              </motion.li>
-            </Link>
-          </ul>        
+          <nav aria-label="Mobile navigation"><ul className="flex flex-col gap-3">{links(true)}</ul></nav>
+          <RightSide />
         </div>
-        
-        {/* ============== Small Icon Start here =========== */}
-
-          <div
-            onClick={() => setShow(true)}
-            className="w-6 h-5 flex flex-col justify-between items-center mdl:hidden 
-            text-4xl text-textGreen cursor-pointer overflow-hidden group"
-          >
-            <span className="w-full h-[2px] bg-textGreen inline-flex transform 
-              group-hover:translate-x-2 transition-all ease-in-out duration-300">
-            </span>
-            <span className="w-full h-[2px] bg-textGreen inline-flex transform 
-              translate-x-3 group-hover:translate-x-0 transition-all 
-              ease-in-out duration-300">  
-            </span>
-            <span className="w-full h-[2px] bg-textGreen inline-flex transform 
-              translate-x-1 group-hover:translate-x-3 transition-all ease-in-out 
-              duration-300">
-            </span>
-          </div> 
-
-        {show && (
-          <div
-            ref={(node) => (ref.current = node)}
-            onClick={handleClick}
-            className="absolute mdl:hidden top-0 right-0 w-full h-screen  
-            bg-black bg-opacity-50 flex flex-col items-end"
-          >
-            <motion.div
-              initial={{ x: 20, opacity: 0 }}
-              animate={{ x: 0, opacity: 1 }}
-              transition={{ duration: 0.1 }}
-              className="w-[80%] h-full overflow-y-scroll scrollbarHide 
-              bg-[#112240] flex flex-col items-center px-4 py-10 relative"
-            >
-              <MdOutlineClose
-                onClick={() => setShow(false)}
-                className="text-3xl text-textGreen cursor-pointer 
-                hover:text-red-500 absolute top-4 right-4"
-              />
-              <div className="flex flex-col items-center gap-7">
-                <ul className="flex flex-col text-base gap-7">
-                  <Link
-                    className="flex items-center gap-1 font-medium text-textDark 
-                    hover:text-textGreen cursor-pointer duration-300 nav-link"
-                    href="#home"
-                    onClick={handleScroll}
-                  >
-                    <motion.li
-                      initial={{ x: 20, opacity: 0 }}
-                      animate={{ x: 0, opacity: 1 }}
-                      transition={{ duration: 0.2, delay: 0.1, ease: "easeIn" }}
-                    >
-                      Home
-                    </motion.li>
-                  </Link>
-
-                  <Link
-                    className="flex items-center gap-1 font-medium text-textDark 
-                    hover:text-textGreen cursor-pointer duration-300 nav-link"
-                    href="#about"
-                    onClick={handleScroll}
-                  >
-                    <motion.li
-                      initial={{ x: 20, opacity: 0 }}
-                      animate={{ x: 0, opacity: 1 }}
-                      transition={{ duration: 0.2, delay: 0.2, ease: "easeIn" }}
-                    >
-                      About
-                    </motion.li>
-                  </Link>
-
-                  <Link
-                    className="flex items-center gap-1 font-medium text-textDark 
-                    hover:text-textGreen cursor-pointer duration-300 nav-link"
-                    href="#skills"
-                    onClick={handleScroll}
-                  >
-                    <motion.li
-                      initial={{ x: 20, opacity: 0 }}
-                      animate={{ x: 0, opacity: 1 }}
-                      transition={{ duration: 0.2, delay: 0.3, ease: "easeIn" }}
-                    >
-                      Skills
-                    </motion.li>
-                  </Link>
-                  
-                  <Link
-                    className="flex items-center gap-1 font-medium text-textDark 
-                    hover:text-textGreen cursor-pointer duration-300 nav-link"
-                    href="#experience"
-                    onClick={handleScroll}
-                  >
-                    <motion.li
-                      initial={{ x: 20, opacity: 0 }}
-                      animate={{ x: 0, opacity: 1 }}
-                      transition={{ duration: 0.2, delay: 0.3, ease: "easeIn" }}
-                    >
-                      Experience
-                    </motion.li>
-                  </Link>
-
-                  <Link
-                    className="flex items-center gap-1 font-medium text-textDark 
-                    hover:text-textGreen cursor-pointer duration-300 nav-link"
-                    href="#project"
-                    onClick={handleScroll}
-                  >
-                    <motion.li
-                      initial={{ x: 20, opacity: 0 }}
-                      animate={{ x: 0, opacity: 1 }}
-                      transition={{ duration: 0.2, delay: 0.4, ease: "easeIn" }}
-                    >
-                      Project
-                    </motion.li>
-                  </Link>
-                  <Link
-                    className="flex items-center gap-1 font-medium text-textDark 
-                    hover:text-textGreen cursor-pointer duration-300 nav-link"
-                    href="#contact"
-                    onClick={handleScroll}
-                  >
-                    <motion.li
-                      initial={{ x: 20, opacity: 0 }}
-                      animate={{ x: 0, opacity: 1 }}
-                      transition={{ duration: 0.2, delay: 0.5, ease: "easeIn" }}
-                    >
-                      Contact
-                    </motion.li>
-                  </Link>
-                </ul>
-                
-                <div className="flex gap-4">
-                  <motion.a
-                    initial={{ y: 20, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    transition={{ delay: 0.8, ease: "easeIn" }}
-                    href="https://github.com/Ahmedlekan"
-                    target="_blank"
-                  >
-                    <span className="w-10 h-10 text-xl bg-bodyColor border-[1px] 
-                     border-zinc-700 hover:border-textGreen text-zinc-200 
-                      rounded-full inline-flex items-center justify-center 
-                      hover:text-textGreen cursor-pointer hover:-translate-y-2 
-                      transition-all duration-300">
-                      <TbBrandGithub />
-                    </span>
-                  </motion.a>
-                  
-                  <motion.a
-                    initial={{ y: 20, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    transition={{ delay: 0.9, ease: "easeIn" }}
-                    href="https://www.linkedin.com/in/lekan-ahmed-8aa401214"
-                    target="_blank"
-                  >
-                    <span className="w-10 h-10 text-xl bg-bodyColor border-[1px] 
-                    border-zinc-700 hover:border-textGreen text-zinc-200 
-                      rounded-full inline-flex items-center justify-center 
-                    hover:text-textGreen cursor-pointer hover:-translate-y-2 
-                      transition-all duration-300">
-                      <SlSocialLinkedin />
-                    </span>
-                  </motion.a>
-
-                  <motion.a
-                    initial={{ y: 20, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    transition={{ delay: 1, ease: "easeIn" }}
-                    href="https://twitter.com/AhmedLekan11"
-                    target="_blank"
-                  >
-                    <span className="w-10 h-10 text-xl bg-bodyColor border-[1px] 
-                    border-zinc-700 hover:border-textGreen text-zinc-200 
-                      rounded-full inline-flex items-center justify-center 
-                    hover:text-textGreen cursor-pointer hover:-translate-y-2 
-                      transition-all duration-300">
-                      <SlSocialTwitter />
-                    </span>
-                  </motion.a>
-                </div>
-              </div>
-
-              <motion.a
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 1.2, ease: "easeIn" }}
-                className="text-sm w-72 tracking-widest text-textGreen text-center 
-                  mt-4"
-                href="mailto:Ahmedlekan011@gmail.com"
-              >
-                <p>Ahmedlekan011@gmail.com</p>
-              </motion.a>
-            </motion.div>
-          </div>
-        )}
-
-        {/* ============== Small Icon End here ============= */}
-
-        {/* ============ ListItem End here ========== */}
-      </div>
-    </div>
+      </dialog>
+    </header>
   );
-};
-
-
-export default Navbar
-
+}

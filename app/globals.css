@@ -2,55 +2,68 @@
 @tailwind components;
 @tailwind utilities;
 
-
 @layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
+  }
 
-  .hero-ring {
-    @apply absolute inset-0 border-2 
-    top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full 
-    border-emerald-300/5 shadow-[0_0_80px_inset] shadow-emerald-300/5
+  body {
+    @apply bg-bodyColor font-bodyFont text-textLight antialiased;
+    margin: 0;
+    overflow-wrap: break-word;
+  }
+
+  section[id] {
+    scroll-margin-top: 1rem;
+  }
+
+  :focus-visible {
+    outline: 2px solid #64ffda;
+    outline-offset: 4px;
+  }
+
+  ::selection {
+    background: #64ffda;
+    color: #0a192f;
   }
 }
 
 @layer components {
+  .section-shell {
+    @apply mx-auto max-w-containerSmall px-6 py-12 md:py-16;
+  }
+
+  .surface {
+    @apply rounded-xl border border-gray-700 bg-gray-900/60 p-6;
+  }
+
+  .button-primary {
+    @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-lg bg-textGreen px-6 py-3 font-semibold text-gray-950 transition-colors hover:bg-emerald-200;
+  }
+
+  .button-secondary {
+    @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-lg border border-textGreen/50 px-6 py-3 font-semibold text-textGreen transition-colors hover:bg-hoverColor;
+  }
+
   .contactInput {
-    @apply w-full text-base text-white placeholder:text-textLight border 
-    border-b-[1px] border-transparentborder-b-textGreen py-3 px-2 outline-none 
-    focus-within:border-[1px] focus-within:border-textGreen duration-100 
-    bg-zinc-800;
+    @apply w-full rounded-lg border border-gray-600 bg-gray-900 px-4 py-3 text-white placeholder:text-gray-400 focus:border-textGreen;
   }
 
-  .circle{
-    @apply relative w-[250px] h-[250px] bg-[#999] rounded-[50%]
-    before:content-[""] before:absolute before:inset-[-10px_90px]
-    before:bg-textGreen before:hover:inset-[-20px_0px] overflow-hidden
-    before:transition-all transition duration-[0.5s] before:animate-spin before:[animation-duration:10s]
-    after:content-[""] after:absolute after:inset-[6px] after:bg-[#162052]
-    after:rounded-[50%] after:z-1
+  .skip-link {
+    @apply fixed left-4 top-4 z-[100] -translate-y-24 rounded-lg bg-textGreen px-5 py-3 font-semibold text-gray-950 focus:translate-y-0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
   }
 
-  .content{
-    @apply absolute inset-[30px] border-[6px] border-[#070a1c] rounded-[50%]
-    overflow-hidden z-3 
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
-
-  .contentImg{
-    @apply absolute top-0 left-0 w-full h-full object-cover transition 
-    duration-[0.5s] pointer-events-none
-  }
-  
 }
-
-.scrollbarHide::-webkit-scrollbar {
-  display: none;
-}
-.active {
-  color: #64ffda;
-}
-
-.transition-all {
-  transition-property: all;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 300ms;
-}
-

@@ -1,185 +1,112 @@
-import { useState, useRef } from 'react';
-import { FiSend, FiCheck, FiAlertCircle } from 'react-icons/fi';
-import { motion } from 'framer-motion';
+"use client";
 
-const Contact = () => {
-  const formRef = useRef<HTMLFormElement>(null);
-  const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
-  const [errorMessage, setErrorMessage] = useState('');
+import { useRef, useState } from "react";
+import type { FormEvent } from "react";
+import { contactEmail, socialLinks } from "@/constants/constant";
+import { CONTACT_LIMITS } from "@/app/libs/contact";
+import SectionTitle from "./SectionTitle";
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setStatus('sending');
-    setErrorMessage('');
+type Status = "idle" | "sending" | "success" | "error";
 
-    const formData = new FormData(e.currentTarget);
-    const data = {
-      name: formData.get('user_name') as string,
-      email: formData.get('user_email') as string,
-      subject: formData.get('subject') as string,
-      message: formData.get('message') as string
-    };
+export default function Contact() {
+  const [status, setStatus] = useState<Status>("idle");
+  const [errorMessage, setErrorMessage] = useState("");
+  const sending = useRef(false);
+
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    if (sending.current) return;
+    const form = event.currentTarget;
+    const data = new FormData(form);
+    sending.current = true;
+    setStatus("sending");
+    setErrorMessage("");
+    const controller = new AbortController();
+    const timeout = window.setTimeout(() => controller.abort(), 20000);
 
     try {
-      const response = await fetch('/api/sendmail', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data),
+      const response = await fetch("/api/sendmail", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        signal: controller.signal,
+        body: JSON.stringify({
+          name: data.get("user_name"),
+          email: data.get("user_email"),
+          subject: data.get("subject"),
+          message: data.get("message"),
+          website: data.get("website"),
+        }),
       });
-
-      const result = await response.json();
-
+      const result: unknown = await response.json().catch(() => null);
       if (!response.ok) {
-        throw new Error(result.error || 'Failed to send message');
+        const detail = result && typeof result === "object" && "error" in result && typeof result.error === "string" ? result.error : "";
+        throw new Error(detail || "The form is unavailable. Please use the email link below.");
       }
-
-      setStatus('success');
-      if (formRef.current) formRef.current.reset()
+      if (!result || typeof result !== "object" || !("success" in result) || result.success !== true) {
+        throw new Error("We couldn't confirm your message was sent. Please use the email link below.");
+      }
+      form.reset();
+      setStatus("success");
     } catch (error) {
-      setStatus('error');
-      setErrorMessage(error instanceof Error ? error.message : 'An unexpected error occurred');
+      setStatus("error");
+      setErrorMessage(error instanceof Error && error.name === "AbortError"
+        ? "The request timed out. Delivery couldn't be confirmed; please contact me by email."
+        : error instanceof Error ? error.message : "Something went wrong. Please contact me by email.");
     } finally {
-      setTimeout(() => {
-        setStatus('idle');
-        setErrorMessage('');
-      }, 5000);
+      window.clearTimeout(timeout);
+      sending.current = false;
     }
-  };
+  }
 
   return (
-    <section id="contact"
-      className="max-w-contentContainer mx-auto py-20 px-4"
-    >
-      <motion.div
-       initial={{ opacity: 0, y: 20 }}
-       whileInView={{ opacity: 1, y: 0 }}
-       transition={{ duration: 0.5 }}
-       viewport={{ once: true }}
-       className="flex flex-col items-center gap-4"
-      >
-        <p className="font-titleFont text-lg text-textGreen 
-        font-semibold flex items-center tracking-wide">
-          What’s Next?
-        </p>
-        <h2 className="font-titleFont text-5xl font-semibold">Get In Touch</h2>
-        <p className=" max-w-containerxs text-lg text-center text-gray-400 mb-12">
-          I'm currently open to full-time, part-time, contract, or freelance
-          opportunities. Whether you have a project in mind or just
-          want to say hello, I'll do my best to respond promptly!
-        </p>
-
-        <div className=" max-w-containerSmall">  
-        <form action="" onSubmit={handleSubmit} ref={formRef}>
-          <ul className=" p-0 m-0">
-
-            <li className=" p-0 m-0 lis-none mb-[10px] overflow-hidden block
-              relative clear-none w-[49%] ml-0 float-left rounded-md ">
-                <input 
-                  id="name"
-                  name="user_name"
-                  type="text"
-                  placeholder="Your Name"
-                  required 
-                  className="w-full bg-gray-800 border border-gray-700
-                    rounded-lg px-5 py-3 text-white placeholder-gray-500 
-                    focus:border-textGreen focus:ring-2 focus:ring-textGreen/50
-                    outline-none transition"
-                />
-            </li>
-
-            <li className=" p-0 m-0 lis-none mb-[10px] overflow-hidden block
-              relative clear-none w-[49%] ml-[2%] float-left rounded-md">
-              <input
-                id="email"
-                name="user_email"
-                type="email"
-                placeholder="Your Email"
-                required
-                className="w-full bg-gray-800 border border-gray-700
-                rounded-lg px-5 py-3 text-white placeholder-gray-500 
-                focus:border-textGreen focus:ring-2 focus:ring-textGreen/50 
-                outline-none transition"
-              />
-            </li>
-
-            <li className=" p-0 m-0 lis-none mb-[10px] overflow-hidden block
-              relative clear-both rounded-md">
-              <input
-                id="subject"
-                name="subject"
-                type="text"
-                placeholder="Subject"
-                required
-                className="w-full bg-gray-800 border border-gray-700 rounded-lg
-                px-5 py-3 text-white placeholder-gray-500 focus:border-textGreen
-                focus:ring-2 focus:ring-textGreen/50 outline-none transition"
-              />
-            </li>
-
-            <li className=" p-0 m-0 lis-none mb-[10px] overflow-hidden block
-              relative clear-both rounded-md">
-              <textarea
-              id="message"
-              name="message"
-              rows={5}
-              placeholder="Your Message"
-              required
-              className="w-full bg-gray-800 border border-gray-700 rounded-lg
-              px-5 py-3 text-white placeholder-gray-500 focus:border-textGreen
-              focus:ring-2 focus:ring-textGreen/50 outline-none transition
-              min-h-[150px]"
-              ></textarea>
-            </li>
-
-            <div className="flex items-center justify-between">
-              <div className="flex items-center">
-                  {status === 'success' && (
-                    <div className="flex items-center text-green-500">
-                      <FiCheck className="mr-2" />
-                      <span>Message sent successfully!</span>
-                    </div>
-                  )}
-                  {status === 'error' && (
-                    <div className="flex items-center text-red-500">
-                      <FiAlertCircle className="mr-2" />
-                      <span>{errorMessage}</span>
-                    </div>
-                  )}
+    <section id="contact" aria-labelledby="contact-title" className="section-shell">
+      <SectionTitle id="contact-title" title="Let's work together"
+        description="I'm open to full-time, part-time, contract, and freelance opportunities in DevOps and cloud engineering." />
+      <div className="grid gap-8 lg:grid-cols-[1fr_2fr]">
+        <div className="space-y-5 leading-relaxed text-textDark">
+          <p>Have a role or project in mind? Send a message with a little context and the best way to reach you.</p>
+          <a className="block break-words text-textGreen underline underline-offset-4" href={"mailto:" + contactEmail}>{contactEmail}</a>
+          <a className="inline-flex min-h-11 items-center text-textGreen underline underline-offset-4" href={socialLinks[1].href}
+            target="_blank" rel="noopener noreferrer">Connect on LinkedIn<span className="sr-only"> (opens in a new tab)</span></a>
+        </div>
+        <form onSubmit={handleSubmit} aria-busy={status === "sending"} className="surface">
+          <fieldset disabled={status === "sending"} className="min-w-0 space-y-5">
+            <legend className="sr-only">Send Ahmed a message</legend>
+            <div className="grid gap-5 mdl:grid-cols-2">
+              <div>
+                <label htmlFor="name" className="mb-2 block text-sm font-medium">Your name (required)</label>
+                <input id="name" name="user_name" type="text" autoComplete="name" required maxLength={CONTACT_LIMITS.name} className="contactInput" />
               </div>
-
-              <button
-                type="submit"
-                disabled={status === 'sending'}
-                className={`flex items-center gap-2 px-6 py-3 rounded-lg
-                  font-medium transition ${
-                  status === 'sending'
-                    ? 'bg-gray-600 cursor-not-allowed'
-                    : 'bg-textGreen text-gray-900 hover:bg-textGreen/90'
-                }`}
-              >
-                {status === 'sending' ? (
-                  'Sending...'
-                ) : (
-                  <>
-                    <FiSend />
-                    Send Message
-                  </>
-                )}
-              </button>
-
+              <div>
+                <label htmlFor="email" className="mb-2 block text-sm font-medium">Your email (required)</label>
+                <input id="email" name="user_email" type="email" autoComplete="email" required maxLength={CONTACT_LIMITS.email} className="contactInput" />
+              </div>
             </div>
-
-          </ul>
+            <div>
+              <label htmlFor="subject" className="mb-2 block text-sm font-medium">Subject (required)</label>
+              <input id="subject" name="subject" type="text" required maxLength={CONTACT_LIMITS.subject} className="contactInput" />
+            </div>
+            <div>
+              <label htmlFor="message" className="mb-2 block text-sm font-medium">Message (required)</label>
+              <textarea id="message" name="message" rows={6} required maxLength={CONTACT_LIMITS.message}
+                aria-describedby="message-help" className="contactInput resize-y" />
+              <p id="message-help" className="mt-2 text-sm text-textDark">Up to 5,000 characters.</p>
+            </div>
+            <div hidden>
+              <label htmlFor="website">Leave this field empty</label>
+              <input id="website" name="website" type="text" tabIndex={-1} autoComplete="off" />
+            </div>
+            <button type="submit" className="button-primary w-full disabled:cursor-wait disabled:opacity-60 mdl:w-auto">
+              {status === "sending" ? "Sending…" : "Send message"}
+            </button>
+          </fieldset>
+          <div role="status" aria-live="polite" aria-atomic="true" className="mt-4 text-sm">
+            {status === "success" && <p className="text-textGreen">Message sent successfully. Thank you for getting in touch!</p>}
+            {status === "sending" && <p className="text-textDark">Your message is being sent.</p>}
+          </div>
+          {status === "error" && <p role="alert" className="mt-4 text-sm text-red-300">{errorMessage}</p>}
         </form>
       </div>
-
-
-      </motion.div>
-          
-      
-
     </section>
   );
-};
-
-export default Contact;
+}

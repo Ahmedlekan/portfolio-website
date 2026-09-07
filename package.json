@@ -6,48 +6,29 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "eslint . --max-warnings=0",
+    "typecheck": "tsc --noEmit --incremental false",
+    "test": "node --test tests/*.test.cjs"
   },
   "dependencies": {
-    "@emailjs/browser": "^3.11.0",
-    "@fortawesome/fontawesome-svg-core": "^6.5.0",
-    "@fortawesome/free-brands-svg-icons": "^6.5.0",
-    "@fortawesome/free-regular-svg-icons": "^6.5.0",
-    "@fortawesome/free-solid-svg-icons": "^6.5.0",
-    "@fortawesome/react-fontawesome": "^0.2.0",
-    "clsx": "^2.1.1",
-    "framer-motion": "^10.16.5",
     "next": "^16.1.6",
     "nodemailer": "^7.0.10",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-icons": "^5.5.0",
-    "react-leaflet": "^4.2.1",
-    "react-type-animation": "^3.2.0",
-    "sharp": "^0.33.5",
-    "tailwind-merge": "^2.5.3",
-    "tailwind-scrollbar": "^3.0.5"
+    "sharp": "^0.33.5"
   },
   "devDependencies": {
-    "@babel/preset-env": "^7.25.8",
-    "@babel/preset-react": "^7.25.7",
     "@svgr/webpack": "^8.1.0",
     "@types/node": "^20",
     "@types/nodemailer": "^6.4.17",
     "@types/react": "^18",
     "@types/react-dom": "^18",
-    "@types/react-scroll": "^1.8.10",
-    "@types/swiper": "^5.4.3",
     "autoprefixer": "^10.4.20",
-    "babel-eslint": "^10.1.0",
     "eslint": "^9.39.1",
     "eslint-config-next": "^16.0.3",
-    "i": "^0.3.7",
     "postcss": "^8.4.47",
-    "swiper": "^11.2.10",
     "tailwindcss": "^3.4.13",
-    "tailwindcss-3d": "^0.0.1",
-    "tailwindcss-animate": "^1.0.7",
     "typescript": "^5"
   }
 }

@@ -1,78 +1,21 @@
-"use client";
+import { skillGroups } from "@/constants/constant";
+import SectionTitle from "./SectionTitle";
 
-import React from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import { Autoplay } from "swiper/modules";
-import { SkillData } from "@/constants/constant";
-
-const Skills = () => {
+export default function Skills() {
   return (
-    <div
-    id="skills"
-      className="max-w-contentContainer mx-auto flex 
-      justify-center items-center my-20"
-    >
-      <div className="flex flex-col gap-20 max-w-[80%] text-center items-center">
-        <div className="flex flex-col items-center gap-4">
-          <h1 className="font-semibold text-[30px] 
-          lgl:text-[40px] font-titleFont">
-            Skills{" "}
-            <span className="text-textGreen">
-              {" "}
-              &{" "}
-            </span>
-            Technologies
-          </h1>
-
-          <p className="text-gray-400 text-[20px]">
-            Using the latest tech this world has to offer
-          </p>
-        </div>
-        
-        <Swiper
-          slidesPerView={5}
-          loop={true}
-          autoplay={{
-            delay: 0,
-            disableOnInteraction: false,
-          }}
-          speed={5000}
-          modules={[Autoplay]}
-          className="max-w-[80%]"
-        >
-          {SkillData.map((skill, index) => (
-            <SwiperSlide key={index}>
-              <div className="flex flex-col items-center justify-center space-y-2 text-center px-2">
-                <skill.icon className="text-5xl text-textGreen" />
-              </div>
-            </SwiperSlide>
-          ))}
-        </Swiper>
-        <Swiper
-          slidesPerView={5}
-          loop={true}
-          autoplay={{
-            delay: 0,
-            disableOnInteraction: false,
-            reverseDirection: true
-          }}
-          speed={5000}
-          modules={[Autoplay]}
-          className="max-w-[80%]"
-        >
-          {SkillData.map((skill, index) => (
-            <SwiperSlide key={index}>
-              <div className="flex flex-col items-center justify-center space-y-2 text-center px-2">
-                <skill.icon className="text-5xl text-textGreen" />
-              </div>
-            </SwiperSlide>
-          ))}
-        </Swiper>
+    <section id="skills" aria-labelledby="skills-title" className="section-shell">
+      <SectionTitle id="skills-title" title="Skills & technologies" description="The tools I use to provision infrastructure, deliver applications, and keep systems observable." />
+      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {skillGroups.map((group) => (
+          <div key={group.title} className="surface">
+            <h3 className="mb-4 text-lg font-semibold text-white">{group.title}</h3>
+            <ul className="flex flex-wrap gap-2">
+              {group.skills.map((skill) => <li key={skill} className="rounded-lg bg-gray-800 px-3 py-2 text-sm text-textLight">{skill}</li>)}
+            </ul>
+          </div>
+        ))}
       </div>
-    </div>
+      <a href="#project" className="mt-6 inline-flex min-h-11 items-center text-sm font-medium text-textGreen hover:underline">See these tools in my projects →</a>
+    </section>
   );
-};
-
-export default Skills;
-
+}
